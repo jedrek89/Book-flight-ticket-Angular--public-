@@ -26,5 +26,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-I am not finisht this projekt yet.
+I am not finisht this project yet.
 To run weather widget you need to put your Open Weather API key to file src\app\services\weather\weather.service.ts - just replace "YOUR_OPENWEATHERAPI_KEY" in getWeatherData function
