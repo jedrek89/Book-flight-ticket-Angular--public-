@@ -1,0 +1,101 @@
+$background-color_1: rgb(234, 227, 227);
+$font-color_1: rgb(255, 255, 255);
+$font-color_2:rgb(244, 226, 226);
+$font-family_1:  Cursive, Helvetica, sans-serif;
+
+*{
+	margin: 0;
+	padding: 0;
+    // box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(80,87,125);
+    background: linear-gradient(0deg, #50577D 0%, #757DA0 50%, #605877 100%); 
+    height: fit-content ;
+    .headerContent{
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px 15% 0% 15%;
+        width: 70%;
+        height: fit-content;
+            .logo{
+                min-width: fit-content;
+                max-width: 100px;
+            }
+            .topMenu{
+                font-size: 25px;
+                font-family: $font-family_1 ;
+                margin: 10px 5px 10px 0px;
+                display: flex;
+                align-self: flex-end;
+                justify-content: space-between;
+                color: $font-color_1;
+                font-family: $font-family_1;
+                .topMenuItem{
+                    padding-left: 15px;
+                    color:$font-color_2;
+                    text-decoration: none;
+                    height: fit-content;
+                    width: fit-content;
+                    transition: 0.5s;
+                }
+
+                .topMenuItem:hover{
+                    color: #000000;
+                }
+                .topMenuItem_active{
+                    color: #000000;
+                }
+            }
+    }
+}
+
+ /* Responsive Styles */
+@media screen and (max-width: 767px){
+    header{
+        .headerContent{
+            margin: 5px 0% 0% 0%;
+            width: 100%;
+            height: fit-content;
+                .logo{
+                    padding-left: 5px;
+                    width: 100%;
+                }
+                .topMenu{
+                    width: 100%;
+                    margin: 5px 5px 5px 0px;
+                    flex-direction: column;
+                    .topMenuItem{
+                        padding-left: 5px;
+                    }
+                }
+        }
+    }
+}
+    
+
+
+
+
+    // .headerContent{
+    //     background-color: #0ac300;
+    // }
+
+    // .topMenu{
+    //     margin: 0%;
+    //     width: 100%;
+    //     flex-direction: column;
+    // }
+            
+    // .topMenuItem{
+    //     margin-left: 0px;
+    //     padding-left: 0px;
+    //     text-align: left;
+    //     height: fit-content;
+    //     width: fit-content;
+    // }

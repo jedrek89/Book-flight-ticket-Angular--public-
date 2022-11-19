@@ -1,0 +1,242 @@
+*{
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+}
+
+$font-family_1: "Arial Black", Gadget, sans-serif;
+$font-family_2:  Cursive, Helvetica, sans-serif;
+
+.hideItem{
+    display: none;
+}
+
+
+
+body{
+    height: fit-content;
+    // height: 500px;
+    width: auto;
+    // margin: 0% 15% 0% 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+#header1{
+    margin: 50px 15% 0% 15%;
+    font-family: $font-family_2;
+    // font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 60px;
+    letter-spacing: 2px;
+    text-align: center;
+    word-spacing: 4px;
+    color: #f4e2e2;
+    text-shadow: 1px 1px 1px #000000;
+    font-weight: 900;
+    text-decoration: none;
+    font-style:random($limit: 1);
+    font-variant: normal;
+    text-transform: none;
+    }
+
+    .searchPanel{
+        margin: 50px auto 320px auto ;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        height: fit-content;
+        opacity: 0.9;
+        .searchTitle{
+            background-color:  #f4e2e2;
+            font-family: $font-family_2;
+            font-size: 20px;
+            padding: 5px 15px 5px 15px;
+            width: fit-content;
+            border-radius: 15px 15px 0px 0px;
+        }
+
+        .searchBox{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            background-color: #f4e2e2;
+            opacity: 0.8;
+            font-family: $font-family_2;
+            font-size: 18px;
+            border-radius: 0px 15px 15px 15px;
+
+        }
+            .searchBox1{
+                display: flex;
+                flex-direction: column;
+                width: fit-content;
+                height: 320px;
+                .searchBox1_R1{
+                    width: fit-content;
+                    height: 50%;
+                    display: flex;
+                    flex-direction: row;
+                    .sb1Box1{
+                        padding: 20px 10px 10px 10px;
+                        width: 400px;
+                        height: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        .label1{
+                            margin-top: 10px;
+                            font-size: 20px;
+                        }
+                        .input1{
+                            margin-top: 10px;
+                            height: 40px;
+                            font-size: 20px;
+                            z-index: 1;
+                            padding-top: 5px;
+                        }
+
+                        .flyFromValAutocomplete{
+                            border: 1px solid rgb(79, 78, 78);
+                            border-radius: 3px;
+                            width: 100%;
+                            height: fit-content;
+                            background-color: #ffffff;
+                            z-index: 2;
+                        }
+                        .flyFromValAutocomplete :hover{
+                            cursor: pointer;
+                            background-color: #bc7676;
+                        }
+                    }
+                    .sb1Box2{
+                        padding: 20px 10px 10px 10px;
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        .label2{
+                            margin-top: 10px;
+                            font-size: 20px;
+                        }
+                        .input2{
+                            margin-top: 10px;
+                            height: 40px;
+                            width: fit-content;
+                            font-size: 18px;
+                        }
+                    }
+                    .sb1Box3{
+                        padding: 20px 10px 10px 10px;
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        .label3{
+                            margin-top: 10px;
+                            font-size: 20px;
+                        }
+                        .input3{
+                            margin-top: 10px;
+                            height: 40px;
+                            width: 100px;
+                            font-size: 18px;
+                        }
+                    }
+                }
+                .searchBox1_R2{
+                    width: fit-content;
+                    height: 50%;
+                    display: flex;
+                    flex-direction: row;
+                    // z-index: 1;
+                    .sb1Box4{
+                        padding: 0px 10px 10px 10px;
+                        width: 400px;
+                        height: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        .label4{
+                            margin-top: 10px;
+                            font-size: 20px;
+                        }
+                        .input4{
+                            margin-top: 10px;
+                            height: 40px;
+                            font-size: 20px;
+                            z-index: 1;
+                        }
+                        .flyToValAutocomplete{
+                            border: 1px solid rgb(79, 78, 78);
+                            border-radius: 3px;
+                            width: 100%;
+                            height: fit-content;
+                            background-color: #ffffff;
+                            z-index: 2;
+                        }
+                        .flyToValAutocomplete :hover{
+                            cursor: pointer;
+                            background-color: #bc7676;
+                        }
+                    }
+                    .sb1Box5{
+                        padding: 0px 10px 10px 10px;
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        .label5{
+                            margin-top: 10px;
+                            font-size: 20px;
+                        }
+                        .input5{
+                            margin-top: 10px;
+                            height: 40px;
+                            width: fit-content;
+                            font-size: 18px;
+                        }
+                    }
+                    .sb1Box6{
+                        padding: 0px 10px 10px 10px;
+                        width: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        .label6{
+                            margin-top: 10px;
+                            font-size: 20px;
+                        }
+                        .input6{
+                            margin-top: 10px;
+                            height: 40px;
+                            width: 100px;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+            .searchBox2{
+                min-width: 20%;
+                max-width: fit-content;
+                height: 320px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // background-color: #932c2c;
+                .searchButton{
+                    all :unset;
+                    width: auto;
+                    margin: auto 60px auto 60px;
+                    cursor: pointer;
+                    background-color: #fe9400;
+                    color: rgb(0, 0, 0);
+                    padding: 15px 90px;
+                    font-size: 20px;
+                    transition: 0.5s;
+                    border-radius: 15px 15px 15px 15px;
+                }
+                .searchButton:hover{
+                    background-color: rgb(74, 143, 143);
+                    transform: scale(1.05);
+                    // -webkit-transform: scale(1.05);
+                }
+
+
+            }
+            
+    }
