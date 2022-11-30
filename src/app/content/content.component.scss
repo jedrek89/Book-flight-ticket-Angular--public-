@@ -89,6 +89,7 @@ body{
                             margin-top: 10px;
                             height: 40px;
                             font-size: 20px;
+                            width: 350px;
                             z-index: 1;
                             padding-top: 3px;
                         }
@@ -158,6 +159,7 @@ body{
                         .input4{
                             margin-top: 10px;
                             height: 40px;
+                            width: 350px;
                             font-size: 20px;
                             z-index: 1;
                             padding-top: 3px;
@@ -240,14 +242,15 @@ body{
             
     }
 
-    @media screen and (max-width: 767px){
+        @media screen and (max-width: 992px){
 
         #header1{
-            font-size: 40px;
+            margin: 50px 15% 50px 15%;
+            font-size: 30px;
             }
 
         .searchPanel{
-            margin: 20px auto 20px auto ;
+            margin: 10px auto 20px auto ;
             width: fit-content;
             display: flex;
             flex-direction: column;
@@ -320,19 +323,24 @@ body{
                     }
                 }
                 .searchBox2{
-                    width: 100%;
-                    padding: 10px 10px 10px 10px;
+                    width: fit-content;
                     height: fit-content;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    padding: 10px 10px 10px 10px;
                     .searchButton{
-                        margin: auto;
-                        padding: 15px 60px;
+                        margin: 0;
+                        align-self: flex-start;
                     }
                 }
         }
 
-
-
     }
+
+    // @media screen and (max-width: 767px){
+
+    //     #header1{
+    //         margin: 5px 0% 0% 0%;
+    //         font-size: 20px;
+    //         }
+
+
+    // }

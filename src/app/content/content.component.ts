@@ -3,6 +3,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { min } from 'rxjs';
 import { __values } from 'tslib';
 import { WorldTimeAPIService } from '../services/worldTimeApi/world-time-api.service';
+import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 
 
 // Object to store date & time (int/string) from API and clock function - global scope
@@ -34,22 +35,21 @@ export class ContentComponent implements OnInit {
   autocompleteStatus2 :number = 0;
   flyFromValFilter: string[] = [];
   flyToValFilter: string[] = [];
-  flyFromValArr: string[] = ["Warsaw | WAW", "Warsaw | WMI"];
+  flyFromValArr: string[] = ["Warsaw | F.Chopin WAW", "Warsaw | Modlin WMI"];
   flyFromValArrSliced: string[] = [];
-  flyToValArr: string[] = ["London | LON", "London | LCY", "London | LGW", 
-  "London | LHR", "Paris", "New York"];
+  flyToValArr: string[] = ["London | Metropolitan Area LON", "London | London City Airport LCY", "London | London Gatwick Airport	LGW", 
+  "London | London Heathrow Airport	LHR", "Paris", "New York"];
   flyToValArrSliced: string[] = [];
   input1Hint :string = "";
   input4Hint :string = "";
 
-  constructor(private WorldTimeAPIService: WorldTimeAPIService) { }
+  constructor(private WorldTimeAPIService: WorldTimeAPIService, private FlightDataAPIService: FlightDataAPIService) {}
   // @ViewChild('input1') input1: ElementRef;
   ngOnInit(): void {
     // Berlin TZ = Warsaw TZ
     this.runWorldTimeAPI('Europe', 'Berlin');
   }
-
-
+  
 
   runWorldTimeAPI(continent: string, city: string){
     this.WorldTimeAPIService.getTimeFromAPI(continent, city).subscribe( (data:any) => {
@@ -132,6 +132,7 @@ export class ContentComponent implements OnInit {
 
   getFlightParameters(param1: string, param2: string, param3: string, param4: string, param5: string, param6: string) {
     // @ViewChild('input1') myNameElem: ElementRef;
+    this.FlightDataAPIService.getFlightData().subscribe((data:any) => {console.log("flight data API response", data)});   
     console.log('funkcja działa porawnie');
     console.log(param1);
     console.log(param2);
