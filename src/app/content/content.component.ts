@@ -34,10 +34,10 @@ export class ContentComponent implements OnInit {
   autocompleteStatus2 :number = 0;
   flyFromValFilter: string[] = [];
   flyToValFilter: string[] = [];
-  flyFromValArr: string[] = ["Warsaw | F.Chopin WAW", "Warsaw | Modlin WMI"];
+  flyFromValArr: string[] = ["Warsaw | WAW", "Warsaw | WMI"];
   flyFromValArrSliced: string[] = [];
-  flyToValArr: string[] = ["London | Metropolitan Area LON", "London | London City Airport LCY", "London | London Gatwick Airport	LGW", 
-  "London | London Heathrow Airport	LHR", "Paris", "New York"];
+  flyToValArr: string[] = ["London | LON", "London | LCY", "London | LGW", 
+  "London | LHR", "Paris", "New York"];
   flyToValArrSliced: string[] = [];
   input1Hint :string = "";
   input4Hint :string = "";

@@ -77,10 +77,17 @@
                             <div *ngIf="this.widget1Icon1 != ' '" class="widget1WeatherLogoAera" 
                                 [ngStyle]="{backgroundImage: 'url(../../assets/weather/clearSkyNight.svg)', width: '50px', height: '50px', backgroundSize: 'cover', margin: 'auto' }">
                             </div>
-                            <div>Temperature</div>
-                            <div>Date</div>
+                            <!-- <div>{{this.weatherData1.list[this.widget1_i].main.temp}} ℃</div>
+                            <div>{{this.weatherData1.list[this.widget1_i].dt_txt | date: 'HH:mm (dd.MM)' | slice: 0:6}}</div>
+                            <div>{{this.weatherData1.list[this.widget1_i].dt_txt | date: 'HH:mm (dd.MM)' | slice: 7:12}}</div>
+                            <div>{{this.weatherData1.list[this.widget1_i].weather[0].icon}}</div> -->
                         </div>
-                        <div class="widget1Box_R2_C1_Forecast"></div>
+                        <div class="widget1Box_R2_C1_Forecast">
+                            <!-- <div>{{this.widget1_i + 1}}</div>
+                            <div>{{this.weatherData1.list[this.widget1_i + 1 ].main.temp}} ℃</div>
+                            <div>{{this.weatherData1.list[this.widget1_i + 1 ].dt_txt | date: 'HH:mm (dd.MM)' | slice: 0:6}}</div>
+                            <div>{{this.weatherData1.list[this.widget1_i + 1 ].dt_txt | date: 'HH:mm (dd.MM)' | slice: 7:12}}</div> -->
+                        </div>
                         <div class="widget1Box_R2_C1_Forecast"></div>
                         <div class="widget1Box_R2_C1_Forecast"></div>
                         <div class="widget1Box_R2_C1_Forecast"></div>

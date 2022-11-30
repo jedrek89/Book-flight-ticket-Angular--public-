@@ -13,8 +13,8 @@ header{
     width: 100%;
     display: flex;
     flex-direction: column;
-    background: rgb(80,87,125);
-    background: linear-gradient(0deg, #50577D 0%, #757DA0 50%, #605877 100%); 
+    background: rgba(255, 255, 255, 0.1);
+    // background: linear-gradient(0deg, #50577D 0%, #757DA0 50%, #605877 100%); 
     height: fit-content ;
     .headerContent{
         display: inline-flex;
@@ -22,7 +22,8 @@ header{
         justify-content: space-between;
         margin: 10px 15% 0% 15%;
         width: 70%;
-        height: fit-content;
+        // height: fit-content;
+        // height: 35px;
             .logo{
                 min-width: fit-content;
                 max-width: 100px;
@@ -42,7 +43,7 @@ header{
                     text-decoration: none;
                     height: fit-content;
                     width: fit-content;
-                    transition: 0.5s;
+                    transition: 1s;
                 }
 
                 .topMenuItem:hover{
@@ -77,25 +78,3 @@ header{
         }
     }
 }
-    
-
-
-
-
-    // .headerContent{
-    //     background-color: #0ac300;
-    // }
-
-    // .topMenu{
-    //     margin: 0%;
-    //     width: 100%;
-    //     flex-direction: column;
-    // }
-            
-    // .topMenuItem{
-    //     margin-left: 0px;
-    //     padding-left: 0px;
-    //     text-align: left;
-    //     height: fit-content;
-    //     width: fit-content;
-    // }

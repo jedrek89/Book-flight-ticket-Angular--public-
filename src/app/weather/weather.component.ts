@@ -30,6 +30,9 @@ export class WeatherComponent implements OnInit {
   widget1Icon1: string = "";
   widget1Frc1Day: string = "";
   widget1Frc2Day: string = "";
+  widget1Frc3Day: string = "";
+  widget1Frc4Day: string = "";
+  widget1Frc5Day: string = "";
   widget1_i: number = 0;
   weatherEl: number = 0;
 
@@ -45,7 +48,8 @@ export class WeatherComponent implements OnInit {
     // console.log("Weather data from app.component", weatherData1);
     // this.WeatherService.getWeatherData().subscribe( (data:any) => {(this.weatherData1 = data);
     this.runWeatherApi(weatherData1, 0);
-    // console.log("weather API", data);
+    this.weatherData1 = weatherData1;
+    console.log("weatherData1", weatherData1);
     // })
     this.widget1Forecast(weatherData1);
   }
@@ -68,33 +72,47 @@ export class WeatherComponent implements OnInit {
     // repeat for 3 next arrays
     this.widget1Frc1Day = data.list[0].dt_txt.substring(8, 10);
     this.widget1Frc2Day = data.list[1].dt_txt.substring(8, 10);
-    // do {
-    //   console.log("this i", this.widget1_i);
-    //   this.widget1Frc2Day = data.list[this.widget1_i].dt_txt.substring(8, 10);
-    //   console.log("this.widget1Frc2Day", this.widget1Frc2Day);
-
-    //   this.widget1_i++;
-    // } while (this.widget1Frc1Day === this.widget1Frc2Day);
 
     while (this.widget1Frc1Day === this.widget1Frc2Day) {
       this.widget1Frc2Day = data.list[this.widget1_i].dt_txt.substring(8, 10);
-      // console.log("this.widget1Frc2Day", this.widget1Frc2Day);
       this.widget1_i++;
     }
-    this.widget1_i--;
-    console.log("this.widget1Frc2Day", this.widget1Frc2Day);
-    console.log("this i", this.widget1_i);
-    // console.log("widget1Forecast1Day: ", this.widget1Frc1Day);
-    // console.log("widget1Forecast2Day ", this.widget1Frc2Day);
-    // console.log("this i", this.widget1_i);
-    // console.log(data.list[this.widget1_i].dt_txt.substring(8, 10));
-    // let end1_Array = this.widget1_i + 7;
-    // // First array
-    // for (let index = this.widget1_i -1; index < end1_Array; index++) {
-    //   console.log("FirstDay array to div - datael. num", this.widget1_i++);
-    //   console.log(data.list[this.widget1_i].dt_txt.substring(8, 10));
-    // }
 
+    // (this.widget1Frc1Day === this.widget1Frc2Day)? : ;
+
+    for (let index = 0; index < this.widget1_i; index++) {
+      console.log("widget1Frc1Day", data.list[index]);
+    }
+
+    for (let index = this.widget1_i; index < this.widget1_i + 7; index++) {
+      console.log("widget1Frc2Day", data.list[index]);
+    }
+
+    for (let index = this.widget1_i + 8; index < this.widget1_i + 15; index++) {
+      console.log("widget1Frc3Day", data.list[index]);
+    }
+
+    for (let index = this.widget1_i + 16; index < this.widget1_i + 23; index++) {
+      console.log("widget1Frc4Day", data.list[index]);
+    }
+
+    for (let index = this.widget1_i + 24; index < this.widget1_i + 32; index++) {
+      console.log("widget1Frc5Day", data.list[index]);
+    }
+
+    this.widget1Frc3Day = data.list[this.widget1_i + 8].dt_txt.substring(8, 10);
+    this.widget1Frc4Day = data.list[this.widget1_i +16].dt_txt.substring(8, 10);
+    this.widget1Frc5Day = data.list[this.widget1_i + 24].dt_txt.substring(8, 10);
+
+    console.log("widget1Forecast1Day: ", this.widget1Frc1Day);
+    console.log("widget1Forecast2Day ", this.widget1Frc2Day);
+    console.log("widget1Forecast3Day ", this.widget1Frc3Day);
+    console.log("widget1Forecast4Day ", this.widget1Frc4Day);
+    console.log("widget1Forecast5Day ", this.widget1Frc5Day);
+
+
+    console.log(data.list[this.widget1_i].dt_txt.substring(8, 10));
+    let end1_Array = this.widget1_i + 7;
 
   }
 
@@ -105,13 +123,13 @@ export class WeatherComponent implements OnInit {
 
 rightArrow1(){
   (this.weatherEl < weatherData1.list.length -1)? this.weatherEl++ : ""
-  console.log("current weatherEl", this.weatherEl);
+  // console.log("current weatherEl", this.weatherEl);
   this.runWeatherApi(weatherData1, this.weatherEl);
 }
 
 leftArrow1(){
   (this.weatherEl <= weatherData1.list.length -1 && this.weatherEl > 0)? this.weatherEl-- : ""
-  console.log("current weatherEl", this.weatherEl);
+  // console.log("current weatherEl", this.weatherEl);
   this.runWeatherApi(weatherData1, this.weatherEl);
 }
 }
