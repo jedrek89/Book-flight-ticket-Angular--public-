@@ -4,7 +4,7 @@ import { dateTimeFromAPI } from './content/content.component';
 import { clock } from './content/content.component';
 import { WeatherService } from '../app/services/weather/weather.service';
 
-var weatherData1: any;
+let weatherData1: any;
 export{
   weatherData1
 }
@@ -27,12 +27,11 @@ export class AppComponent {
   }
   ngOnInit(): void {
     console.log("app init");
-    // this.WeatherService.getWeatherData().subscribe( (data:any) => {(weatherData1 = data);
-    //   console.log("weather API", data);
-    //   weatherData1 = data;
-    //   console.log("weatherData1 from API", weatherData1);
-    //   return weatherData1;
-    //   })
+    this.WeatherService.getWeatherData().subscribe( (data:any) => {(weatherData1 = data);
+      weatherData1 = data;
+      console.log("weatherData1 from API", weatherData1);
+      return weatherData1;
+      })
 }}
 
 setInterval(() => {clock(dateTimeFromAPI.secondInt, dateTimeFromAPI.minuteInt, dateTimeFromAPI.hourInt); }, 1000);

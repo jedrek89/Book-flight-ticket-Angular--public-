@@ -78,17 +78,19 @@ body{
             }
 
             .flyFrom{
+                width: 25%;
                 padding: 5px 5px 5px 5px;
             }
 
             .planeIconSmall{
-                // padding: 5px 5px 5px 5px;
+                width: fit-content;
                 padding-top: 2.5px;
                 width: 30px;
                 height: 30px;
             }
 
             .flyTo{
+                width: 25%;
                 padding: 5px 5px 5px 5px;
             }
 
@@ -104,6 +106,43 @@ body{
                 padding: 5px 5px 5px 5px;
                 display: flex;
                 flex-direction: row;
+            }
+
+            .distance{
+                padding: 0px 5px 5px 0px;
+            }
+
+            .duration{
+                padding: 0px 5px 5px 0px;
+            }
+
+            .provider{
+                padding: 0px 5px 5px 0px;
+            }
+
+            .detailsButDiv{
+                padding: 0px 10px 0px 10px;
+            }
+            
+            .detailsButton{
+                all :unset;
+                text-align: center;
+                width: fit-content;
+                height: fit-content;
+                padding: 0px 10px 0px 10px;
+                margin: auto;
+                cursor: pointer;
+                background-color: #fe9400;
+                color: rgb(0, 0, 0);
+                // padding: 15px 40px;
+                transition: 0.5s;
+                border-radius: 15px 15px 15px 15px;
+            }
+
+            .detailsButton:hover{
+                background-color: rgb(74, 143, 143);
+                transform: scale(1.02);
+                transition: 0.5s;
             }
 
             .itemBoxC3{

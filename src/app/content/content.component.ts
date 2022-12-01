@@ -7,7 +7,7 @@ import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.
 
 
 // Object to store date & time (int/string) from API and clock function - global scope
-var dateTimeFromAPI = {
+let dateTimeFromAPI = {
   dtTxt: 'dtTxt',
   timeString: 'time',
   date: 'date',
@@ -130,9 +130,9 @@ export class ContentComponent implements OnInit {
     this.autocompleteStatus2 = 0;
   }
 
-  getFlightParameters(flyFrom: string, departDate: string, passNum: string, flyTo: string, returnDate: string, currency: string) {
+  getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
     // @ViewChild('input1') myNameElem: ElementRef;
-    this.FlightDataAPIService.getFlightData().subscribe((data:any) => {console.log("flight data API response", data)});   
+    this.FlightDataAPIService.getFlightData(flyFrom, departDate, passNum, flyTo, returnDate, currency ).subscribe((data:any) => {console.log("flight data API response", data)});   
     console.log('funkcja działa porawnie', 'flyfrom: ', flyFrom, 'departDate: ', departDate);
 
     }
