@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <div id="sb1Box2" class="sb1Box2">
-                        <label id="label2" class="label2">Depart:</label>
+                        <label id="label2" class="label2">Departure:</label>
                         <input #departDate class="input2" type="date" id="departDate">
                     </div>
 
@@ -29,7 +29,6 @@
                         <input #flyToValue class="input4" placeholder="Available: London, New York, Paris" type="text" [(ngModel)]="input2Value" value="{{input2Value}}" (keyup)="getInput2(input2Value)">
                         <div [ngClass]="{'flyToValAutocomplete': this.autocompleteStatus2 == 1, 'hideItem' : this.autocompleteStatus2 == 0}">
                             <option (click)="autocomplete2_confirm(option)" [value]="option" *ngFor="let option of flyToValFilter;let i=index;">{{option}}</option>
-                            <!-- <option (click)="autocomplete2_confirm(option)" [value]="option *ngFor="let option of flyToValFilter;let i=index;">{{option}}</option> -->
                         </div>
                     </div>
 
@@ -50,8 +49,7 @@
 
             </div>
             <div id="searchBox2" class="searchBox2">
-                <button class="searchButton" (click) = "getFlightParameters(input1Value, departDate.value, passNum.value, flyToValue.value, returnDate.value, currency.value)" 
-                >search</button>
+                <button class="searchButton" (click) = "getFlightParameters(input1Value, departDate.value, passNum.value, flyToValue.value, returnDate.value, currency.value)">search</button>
 
             </div>
         </div>

@@ -27,14 +27,12 @@ export class AppComponent {
   }
   ngOnInit(): void {
     console.log("app init");
-    this.WeatherService.getWeatherData().subscribe( (data:any) => {(weatherData1 = data);
-      // this.runWeatherApi(this.weatherData1, 0);
-      console.log("weather API", data);
-      weatherData1 = data;
-      console.log("weatherData1", weatherData1);
-      return weatherData1;
-      })
-
+    // this.WeatherService.getWeatherData().subscribe( (data:any) => {(weatherData1 = data);
+    //   console.log("weather API", data);
+    //   weatherData1 = data;
+    //   console.log("weatherData1 from API", weatherData1);
+    //   return weatherData1;
+    //   })
 }}
 
 setInterval(() => {clock(dateTimeFromAPI.secondInt, dateTimeFromAPI.minuteInt, dateTimeFromAPI.hourInt); }, 1000);

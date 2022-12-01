@@ -1,0 +1,119 @@
+*{
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+}
+
+$font-family_1: "Arial Black", Gadget, sans-serif;
+$font-family_2:  Cursive, Helvetica, sans-serif;
+
+.hideItem{
+    display: none;
+}
+
+body{
+    height: fit-content;
+    width: auto;
+}
+
+.header1{
+    padding: 30px 0px 30px 0px;
+    font-family: $font-family_2;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+    word-spacing: 4px;
+    color: #f4e2e2;
+    text-shadow: 1px 1px 1px #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style:random($limit: 1);
+    font-variant: normal;
+    text-transform: none;
+    }
+
+.searchResultsBox{
+    width: 80%;
+    height: fit-content;
+    margin: 0px auto 20px auto;
+}
+
+    .item{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        // background-color: #f4e2e2;
+        opacity: 0.9;
+            .price{
+                background-color:  #f4e2e2;
+                font-family: $font-family_2;
+                font-size: 20px;
+                padding: 5px 15px 5px 15px;
+                width: fit-content;
+                border-radius: 15px 15px 0px 0px;
+            }
+
+            .itemBox{
+                width: 100%;
+                height: 300px;  // height for test
+                display: flex;
+                flex-direction: column;
+                background-color: #f4e2e2;
+                opacity: 0.8;
+                font-family: $font-family_2;
+                font-size: 18px;
+                border-radius: 0px 15px 15px 15px;
+            }
+
+            .itemBox:hover{
+                transition: 0.5s;
+                opacity: 1;
+            }
+
+            .itemBoxC1{
+                padding: 5px 5px 5px 5px;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .flyFrom{
+                padding: 5px 5px 5px 5px;
+            }
+
+            .planeIconSmall{
+                // padding: 5px 5px 5px 5px;
+                padding-top: 2.5px;
+                width: 30px;
+                height: 30px;
+            }
+
+            .flyTo{
+                padding: 5px 5px 5px 5px;
+            }
+
+            .departure{
+                padding: 5px 5px 5px 5px;
+            }
+
+            .return{
+                padding: 5px 5px 5px 5px;
+            }
+
+            .itemBoxC2{
+                padding: 5px 5px 5px 5px;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .itemBoxC3{
+                padding: 5px 5px 5px 5px;
+                display: flex;
+                flex-direction: row;
+            }
+        
+    }
+
+@media screen and (max-width: 992px){
+
+}

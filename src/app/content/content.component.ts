@@ -35,10 +35,10 @@ export class ContentComponent implements OnInit {
   autocompleteStatus2 :number = 0;
   flyFromValFilter: string[] = [];
   flyToValFilter: string[] = [];
-  flyFromValArr: string[] = ["Warsaw | F.Chopin WAW", "Warsaw | Modlin WMI"];
+  flyFromValArr: string[] = ["Warsaw | Airport: WAW", "Warsaw | Airport: WMI"];
   flyFromValArrSliced: string[] = [];
-  flyToValArr: string[] = ["London | Metropolitan Area LON", "London | London City Airport LCY", "London | London Gatwick Airport	LGW", 
-  "London | London Heathrow Airport	LHR", "Paris", "New York"];
+  flyToValArr: string[] = ["London | Airport: LON", "London | Airport: LCY", "London | Airport : LGW", 
+  "London | Airport: LHR", "Paris", "New York"];
   flyToValArrSliced: string[] = [];
   input1Hint :string = "";
   input4Hint :string = "";
@@ -130,16 +130,11 @@ export class ContentComponent implements OnInit {
     this.autocompleteStatus2 = 0;
   }
 
-  getFlightParameters(param1: string, param2: string, param3: string, param4: string, param5: string, param6: string) {
+  getFlightParameters(flyFrom: string, departDate: string, passNum: string, flyTo: string, returnDate: string, currency: string) {
     // @ViewChild('input1') myNameElem: ElementRef;
     this.FlightDataAPIService.getFlightData().subscribe((data:any) => {console.log("flight data API response", data)});   
-    console.log('funkcja działa porawnie');
-    console.log(param1);
-    console.log(param2);
-    console.log(param3);
-    console.log(param4);
-    console.log(param5);
-    console.log(param6);
+    console.log('funkcja działa porawnie', 'flyfrom: ', flyFrom, 'departDate: ', departDate);
+
     }
 }
 
