@@ -1,3 +1,14 @@
+I am not finisht this project yet.
+Project uses 2 external API: Open Weather API and Travel Payouts from Rapid API.
+
+To run weather widget you need to put your Open Weather API key to file src\app\services\weather\weather.service.ts - just replace "YOUR_OPENWEATHERAPI_KEY" in getWeatherData function.
+
+To run searchhning for connection you need to put your X-RapidAPI-Key-travelpayouts API key and X-Access-Token to file src\app\services\flightDataAPI\flight-data-api.service.ts - just replace: 'YOUR_API_KEY' and 'YOUR_TOKEN' in options object in FlightDataAPIService class.
+
+I put RWD only for a content component so far
+
+
+
 # Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
@@ -26,7 +37,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-I am not finisht this project yet.
-To run weather widget you need to put your Open Weather API key to file src\app\services\weather\weather.service.ts - just replace "YOUR_OPENWEATHERAPI_KEY" in getWeatherData function
 
-I forget to add RWD styles - sorry for that
