@@ -3,7 +3,6 @@
 
     <div class="searchResultsBox">
         <div class="header1">No available connection go to home a choose a connection</div>
-    <!-- <div *ngFor="let item of flightDataFromAPI.dataFromAPI.data.data.lenght; index as i;"></div> -->
     <div class="item" (click)="displayValue()">
         <div class="price">price (value)</div>
         <div class="itemBox">
@@ -27,8 +26,10 @@
         </div>
     </div>
 </div>
-
-
+        <!-- ngFor works!! -->
+        <div *ngFor="let data of this.flightDataFromAPI.dataAPI.data">
+            <div>item</div>
+        </div>
 
 
 

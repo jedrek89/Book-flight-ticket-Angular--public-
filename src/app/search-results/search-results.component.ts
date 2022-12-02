@@ -9,6 +9,8 @@ import { flightData } from '../content/content.component';
 })
 export class SearchResultsComponent implements OnInit {
   flightDataFromAPI : any = flightData;
+  // flightDataLenght: number = 0;
+  
 
 
 
@@ -20,9 +22,9 @@ export class SearchResultsComponent implements OnInit {
 
   displayValue(){
     console.log("flightDataFromAPI.data", flightData.dataAPI);
-    console.log("flightDataFromAPI.data.lenght", flightData.dataAPI.data);
     console.log("flightDataFromAPI.flyTo", flightData.flyFrom);
     console.log("flightDataFromAPI.flyTo", flightData.flyTo);
+    console.log("flightData.dataAPI.data.length", flightData.dataAPI.data.length);
   }
 
 }

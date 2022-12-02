@@ -5,13 +5,11 @@ import { __values } from 'tslib';
 import { WorldTimeAPIService } from '../services/worldTimeApi/world-time-api.service';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 
-// let flightDataFromAPI: any;
-
 let flightData = {
-  flyFrom: "city1",
-  flyTo: "city2",
+  flyFrom: "",
+  flyTo: "",
   dataAPI: {
-    data: "dataAPI",
+    data: [],
   },
 }
 
@@ -31,10 +29,6 @@ let dateTimeFromAPI = {
   dayName: 'name',
   unixTime: 0
 };
-
-// export {
-//   dateTimeFromAPI
-// }
 
 @Component({
   selector: 'app-content',
@@ -148,9 +142,6 @@ export class ContentComponent implements OnInit {
     {(flightData.dataAPI = data);
       flightData.flyFrom = flyFrom;
       flightData.flyTo = flyTo;
-      console.log("flyFrom", flightData.flyFrom);
-      console.log("flyTo", flightData.flyTo);
-      console.log("flightDataFromAPI", flightData.dataAPI.data.length);
       return flightData;
     });   
     }
