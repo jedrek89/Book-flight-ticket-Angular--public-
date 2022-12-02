@@ -5,12 +5,19 @@ import { __values } from 'tslib';
 import { WorldTimeAPIService } from '../services/worldTimeApi/world-time-api.service';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 
-let flightDataFromAPI: any;
+// let flightDataFromAPI: any;
 
-export{
-  flightDataFromAPI
+let flightData = {
+  flyFrom: "city1",
+  flyTo: "city2",
+  dataAPI: {
+    data: "dataAPI",
+  },
 }
 
+export{
+  flightData, dateTimeFromAPI  
+}
 
 // Object to store date & time (int/string) from API and clock function - global scope
 let dateTimeFromAPI = {
@@ -25,9 +32,9 @@ let dateTimeFromAPI = {
   unixTime: 0
 };
 
-export {
-  dateTimeFromAPI
-}
+// export {
+//   dateTimeFromAPI
+// }
 
 @Component({
   selector: 'app-content',
@@ -138,8 +145,13 @@ export class ContentComponent implements OnInit {
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
     this.FlightDataAPIService.getFlightData(flyFrom, departDate, passNum, flyTo, returnDate, currency).subscribe((data:any) => 
-    {(flightDataFromAPI = data)
-      return console.log('flightDataFromAPI', flightDataFromAPI);
+    {(flightData.dataAPI = data);
+      flightData.flyFrom = flyFrom;
+      flightData.flyTo = flyTo;
+      console.log("flyFrom", flightData.flyFrom);
+      console.log("flyTo", flightData.flyTo);
+      console.log("flightDataFromAPI", flightData.dataAPI.data.length);
+      return flightData;
     });   
     }
 }

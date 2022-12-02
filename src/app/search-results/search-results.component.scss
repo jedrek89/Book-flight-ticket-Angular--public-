@@ -78,7 +78,7 @@ body{
             }
 
             .flyFrom{
-                width: 25%;
+                width: fit-content;
                 padding: 5px 5px 5px 5px;
             }
 
@@ -90,16 +90,16 @@ body{
             }
 
             .flyTo{
-                width: 25%;
+                width: fit-content;
                 padding: 5px 5px 5px 5px;
             }
 
             .departure{
-                padding: 5px 5px 5px 5px;
+                padding: 5px 15px 5px 5px;
             }
 
             .return{
-                padding: 5px 5px 5px 5px;
+                padding: 5px 15px 5px 5px;
             }
 
             .itemBoxC2{

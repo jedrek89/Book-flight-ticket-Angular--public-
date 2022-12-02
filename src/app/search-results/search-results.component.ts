@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { flightDataFromAPI } from '../content/content.component';
+import { flightData } from '../content/content.component';
 
 
 @Component({
@@ -8,12 +8,23 @@ import { flightDataFromAPI } from '../content/content.component';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
+  flightDataFromAPI : any = flightData;
+
+
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(flightData);
   }
 
+  displayValue(){
+    console.log("flightDataFromAPI.data", flightData.dataAPI);
+    console.log("flightDataFromAPI.data.lenght", flightData.dataAPI.data);
+    console.log("flightDataFromAPI.flyTo", flightData.flyFrom);
+    console.log("flightDataFromAPI.flyTo", flightData.flyTo);
+  }
 
 }
-// console.log(flightDataFromAPI);
+
+
