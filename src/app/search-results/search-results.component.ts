@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { flightDataFromAPI } from '../content/content.component';
+
 
 @Component({
   selector: 'app-search-results',
@@ -12,4 +14,6 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }
+// console.log(flightDataFromAPI);

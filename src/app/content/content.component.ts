@@ -5,6 +5,12 @@ import { __values } from 'tslib';
 import { WorldTimeAPIService } from '../services/worldTimeApi/world-time-api.service';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 
+let flightDataFromAPI: any;
+
+export{
+  flightDataFromAPI
+}
+
 
 // Object to store date & time (int/string) from API and clock function - global scope
 let dateTimeFromAPI = {
@@ -38,7 +44,7 @@ export class ContentComponent implements OnInit {
   flyFromValArr: string[] = ["Warsaw | Airport: WAW", "Warsaw | Airport: WMI"];
   flyFromValArrSliced: string[] = [];
   flyToValArr: string[] = ["London | Airport: LON", "London | Airport: LCY", "London | Airport : LGW", 
-  "London | Airport: LHR", "Paris", "New York"];
+  "London | Airport: LHR", "Paris | CDG", "Paris | ORY", "Paris | BVA",  "New York | JFK",  "New York | LGA",  "New York | EWR"];
   flyToValArrSliced: string[] = [];
   input1Hint :string = "";
   input4Hint :string = "";
@@ -131,10 +137,10 @@ export class ContentComponent implements OnInit {
   }
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
-    // @ViewChild('input1') myNameElem: ElementRef;
-    this.FlightDataAPIService.getFlightData(flyFrom, departDate, passNum, flyTo, returnDate, currency ).subscribe((data:any) => {console.log("flight data API response", data)});   
-    console.log('funkcja działa porawnie', 'flyfrom: ', flyFrom, 'departDate: ', departDate);
-
+    this.FlightDataAPIService.getFlightData(flyFrom, departDate, passNum, flyTo, returnDate, currency).subscribe((data:any) => 
+    {(flightDataFromAPI = data)
+      return console.log('flightDataFromAPI', flightDataFromAPI);
+    });   
     }
 }
 
