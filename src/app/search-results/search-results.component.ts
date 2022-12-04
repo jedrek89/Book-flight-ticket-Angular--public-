@@ -20,11 +20,17 @@ export class SearchResultsComponent implements OnInit {
     console.log(flightData);
   }
 
-  displayValue(){
+  displayValue(id: any){
     console.log("flightDataFromAPI.data", flightData.dataAPI);
     console.log("flightDataFromAPI.flyTo", flightData.flyFrom);
     console.log("flightDataFromAPI.flyTo", flightData.flyTo);
     console.log("flightData.dataAPI.data.length", flightData.dataAPI.data.length);
+    console.log("id clicked", id);
+  }
+
+  durationCnv(data :any){
+    console.log("durationCnv", data)
+    return data + 1;
   }
 
 }
