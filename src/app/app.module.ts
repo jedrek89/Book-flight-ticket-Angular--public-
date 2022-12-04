@@ -13,6 +13,7 @@ import { FlightDataAPIService } from './services/flightDataAPI/flight-data-api.s
 import { FormsModule } from '@angular/forms'; // 2 way data binding
 import { WeatherService } from './services/weather/weather.service';
 import { WorldTimeAPIService } from './services/worldTimeApi/world-time-api.service';
+import { DurationConverterPipe } from './pipes/duration-converter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WorldTimeAPIService } from './services/worldTimeApi/world-time-api.serv
     FooterComponent,
     SearchResultsComponent,
     WeatherComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    DurationConverterPipe
   ],
   imports: [
     BrowserModule,
