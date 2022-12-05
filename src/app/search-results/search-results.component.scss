@@ -57,7 +57,7 @@ body{
 
             .itemBox{
                 width: 100%;
-                height: 300px;  // height for test
+                height: fit-content;
                 display: flex;
                 flex-direction: column;
                 background-color: #f4e2e2;

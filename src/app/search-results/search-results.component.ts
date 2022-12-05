@@ -9,28 +9,23 @@ import { flightData } from '../content/content.component';
 })
 export class SearchResultsComponent implements OnInit {
   flightDataFromAPI : any = flightData;
-  // flightDataLenght: number = 0;
-  
+  showItemBoxC3Status: number [] = [];
 
+  // temp Variable - without API
+  showMoreDetailsStatus: number = 0;
 
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(flightData);
+    console.log("flightDataFromAPI", this.flightDataFromAPI);
+    this.showItemBoxC3Status.length = this.flightDataFromAPI.dataAPI.data.length;
+    this.showItemBoxC3Status.fill(0);
   }
 
-  displayValue(id: any){
-    console.log("flightDataFromAPI.data", flightData.dataAPI);
-    console.log("flightDataFromAPI.flyTo", flightData.flyFrom);
-    console.log("flightDataFromAPI.flyTo", flightData.flyTo);
-    console.log("flightData.dataAPI.data.length", flightData.dataAPI.data.length);
-    console.log("id clicked", id);
-  }
-
-  durationCnv(data :any){
-    console.log("durationCnv", data)
-    return data + 1;
+  showItemBoxC3(data: any){
+    console.log("id clicked", data);
+    (this.showItemBoxC3Status[data] === 1) ? this.showItemBoxC3Status[data] = 0 : this.showItemBoxC3Status[data] = 1;
   }
 
 }
