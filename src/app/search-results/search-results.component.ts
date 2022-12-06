@@ -28,6 +28,10 @@ export class SearchResultsComponent implements OnInit {
     (this.showItemBoxC3Status[data] === 1) ? this.showItemBoxC3Status[data] = 0 : this.showItemBoxC3Status[data] = 1;
   }
 
+  seatsReservation(data: string){
+    console.log("seatsReservation", data);
+  }
+
 }
 
 
