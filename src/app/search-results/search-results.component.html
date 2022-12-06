@@ -5,7 +5,9 @@
         <div class="header1">No available connection go to home a choose a connection</div>
                     <!-- ngFor works!! -->
         <div class="item" id="{{ 'item' + i }}" *ngFor="let data of this.flightDataFromAPI.dataAPI.data; index as i">
-            <div class="price">{{flightDataFromAPI.dataAPI.data[i].value}} {{flightDataFromAPI.dataAPI.currency}}</div>
+            <!-- <div class="provider"><b>{{flightDataFromAPI.dataAPI.data[i].gate}}</b></div> -->
+            <div class="provider" *ngIf="flightDataFromAPI.dataAPI.data[i].gate">{{flightDataFromAPI.dataAPI.data[i].gate}}</div>
+            <div class="provider" *ngIf="!flightDataFromAPI.dataAPI.data[i].gate">no data</div>
             <div class="itemBox">
                 <div class="itemBoxC1">
                     <div class="flyFrom">{{this.flightDataFromAPI.flyFrom | slice: this.flightDataFromAPI.flyFrom.lenght:-15}} {{this.flightDataFromAPI.flyFrom | slice: -3 : this.flightDataFromAPI.flyFrom.lenght}}</div>
@@ -20,7 +22,7 @@
                 <div class="itemBoxC2">
                     <div class="distance"><b>distance: </b>{{flightDataFromAPI.dataAPI.data[i].distance}} km</div>
                     <div class="duration"><b>duration: </b>{{flightDataFromAPI.dataAPI.data[i].duration | durationConverter}}</div>
-                    <div class="provider"><b>provider: </b>{{flightDataFromAPI.dataAPI.data[i].gate}}</div>
+                    <div class="price"><b>price: </b>{{flightDataFromAPI.dataAPI.data[i].value}} {{flightDataFromAPI.dataAPI.currency}}</div>
                     <div class="detailsButDiv"><button (click)="showItemBoxC3(i)" class="detailsButton">Show more details</button></div>
                 </div>
                 <div id="{{ 'itemBoxC3_' + i }}" [ngClass]="{'hideItem' : this.showItemBoxC3Status[i] === 0, 'itemBoxC3' : this.showItemBoxC3Status[i] === 1 }">
@@ -36,7 +38,7 @@
     
     <div class="searchResultsBox">
         <div class="item">
-            <div class="price">Price</div>
+            <div class="provider"><b>Provider</b></div>
             <div class="itemBox">
                 <div class="itemBoxC1">
                     <div class="flyFrom">flyFrom</div>
@@ -51,7 +53,7 @@
                 <div class="itemBoxC2">
                     <div class="distance"><b>distance: </b></div>
                     <div class="duration"><b>duration: </b></div>
-                    <div class="provider"><b>provider: </b></div>
+                    <div class="price"><b>price: </b></div>
                     <div class="detailsButDiv"><button  class="detailsButton">Show more details</button></div>
                 </div>
                 <div class ="itemBoxC3">
@@ -322,6 +324,10 @@
 
                     </div>
 
+                    <div class="baggageOption">Choose your baggage option:
+                        <label><input type="radio" name="food" checked > hand baggage</label>
+                        <label><input type="radio" name="food"> additional baggage (up to 23kg / dim 150 cm)</label>
+                    </div>
 
 
                 </div>

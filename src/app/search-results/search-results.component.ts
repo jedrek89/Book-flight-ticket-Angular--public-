@@ -10,7 +10,6 @@ import { flightData } from '../content/content.component';
 export class SearchResultsComponent implements OnInit {
   flightDataFromAPI : any = flightData;
   showItemBoxC3Status: number [] = [];
-
   // temp Variable - without API
   showMoreDetailsStatus: number = 0;
 

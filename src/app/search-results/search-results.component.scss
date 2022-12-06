@@ -46,11 +46,12 @@ body{
         height: fit-content;
         // background-color: #f4e2e2;
         opacity: 0.9;
-            .price{
+            .provider{
                 background-color:  #f4e2e2;
                 font-family: $font-family_2;
                 font-size: 20px;
                 padding: 5px 15px 5px 15px;
+                height: fit-content;
                 width: fit-content;
                 border-radius: 15px 15px 0px 0px;
             }
@@ -117,7 +118,7 @@ body{
                 padding: 5px 15px 5px 25px;
             }
 
-            .provider{
+            .price{
                 padding: 5px 15px 5px 25px;
             }
 
@@ -149,7 +150,7 @@ body{
             .itemBoxC3{
                 padding: 5px 5px 5px 5px;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
             }
 
             .seatsReservation{
@@ -259,9 +260,16 @@ body{
                 margin: 2.5px 0px 0px 4px;
                 background-color: #fe0000;
             }
+
+            .baggageOption{
+                padding: 5px 0px 0px 5px;
+                display: flex;
+                flex-direction: column;
+            }
         
     }
 
 @media screen and (max-width: 992px){
+
 
 }
