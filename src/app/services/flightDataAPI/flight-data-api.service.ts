@@ -16,8 +16,8 @@ export class FlightDataAPIService {
   };
 
   constructor(private http: HttpClient) { }
-
   getFlightData(flyFromVal : string, departDate: string, passengersNum: number, flyToVal : string, returnDate : string, currency : string){
+    (returnDate === '')? returnDate = departDate : '';
     flyFromVal = flyFromVal.substring(flyFromVal.length -3);
     flyToVal = flyToVal.substring(flyToVal.length -3);
     return this.http.get(`https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v2/prices/week-matrix?destination=${flyToVal}&origin=${flyFromVal}&currency=${currency}&show_to_affiliates=true&depart_date=${departDate}&return_date=${returnDate}`, this.options);

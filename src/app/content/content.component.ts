@@ -4,6 +4,8 @@ import { min } from 'rxjs';
 import { __values } from 'tslib';
 import { WorldTimeAPIService } from '../services/worldTimeApi/world-time-api.service';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
+import { Router } from '@angular/router';
+import { SearchResultsComponent } from '../search-results/search-results.component';
 
 let flightData = {
   flyFrom: "",
@@ -50,7 +52,7 @@ export class ContentComponent implements OnInit {
   input1Hint :string = "";
   input4Hint :string = "";
 
-  constructor(private WorldTimeAPIService: WorldTimeAPIService, private FlightDataAPIService: FlightDataAPIService) {}
+  constructor(private WorldTimeAPIService: WorldTimeAPIService, private FlightDataAPIService: FlightDataAPIService, private router: Router){}
   // @ViewChild('input1') input1: ElementRef;
   ngOnInit(): void {
     // Berlin TZ = Warsaw TZ
@@ -142,6 +144,8 @@ export class ContentComponent implements OnInit {
     {(flightData.dataAPI = data);
       flightData.flyFrom = flyFrom;
       flightData.flyTo = flyTo;
+      //get data from API and go to results subpage through router
+      this.router.navigate(['/', 'search-results']);
       return flightData;
     });   
     }
