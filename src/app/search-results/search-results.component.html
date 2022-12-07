@@ -4,12 +4,13 @@
     <!-- Dynamic create!! -->
 
     <div class="searchResultsBox">
-        <div class="header1">No available connection go to home a choose a connection</div>
+        <div *ngIf="this.flightDataFromAPI.dataAPI.data !=''" class="header1">Available connections:</div>
+        <div *ngIf="this.flightDataFromAPI.dataAPI.data == ''" class="header1">No available connection go to home a choose a connection</div>
         <div *ngFor="let data of this.flightDataFromAPI.dataAPI.data; index as i">
             <div class="item" id="{{ 'item' + i }}" *ngIf="flightDataFromAPI.dataAPI.data[i].gate">
                 <div class="provider">{{flightDataFromAPI.dataAPI.data[i].gate}}</div>
                 <div class="itemBox">
-                    
+
                     <div class="itemBoxC1">
                         <div class="flyFrom">{{this.flightDataFromAPI.flyFrom | slice: this.flightDataFromAPI.flyFrom.lenght:-15}} {{this.flightDataFromAPI.flyFrom | slice: -3 : this.flightDataFromAPI.flyFrom.lenght}}</div>
                         <div class="planeIconSmall">

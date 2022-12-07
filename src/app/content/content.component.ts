@@ -5,7 +5,7 @@ import { __values } from 'tslib';
 import { WorldTimeAPIService } from '../services/worldTimeApi/world-time-api.service';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 import { Router } from '@angular/router';
-import { SearchResultsComponent } from '../search-results/search-results.component';
+// import { SearchResultsComponent } from '../search-results/search-results.component';
 
 let flightData = {
   flyFrom: "",
@@ -47,7 +47,7 @@ export class ContentComponent implements OnInit {
   flyFromValArr: string[] = ["Warsaw | Airport: WAW", "Warsaw | Airport: WMI"];
   flyFromValArrSliced: string[] = [];
   flyToValArr: string[] = ["London | Airport: LON", "London | Airport: LCY", "London | Airport : LGW", 
-  "London | Airport: LHR", "Paris | CDG", "Paris | ORY", "Paris | BVA",  "New York | JFK",  "New York | LGA",  "New York | EWR"];
+  "London | Airport: LHR", "Paris | Airport: CDG", "Paris | Airport: ORY", "Paris | Airport: BVA",  "New York | Airport: JFK",  "New York | Airport: LGA",  "New York | Airport: EWR"];
   flyToValArrSliced: string[] = [];
   input1Hint :string = "";
   input4Hint :string = "";

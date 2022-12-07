@@ -12,6 +12,13 @@ export class SearchResultsComponent implements OnInit {
   showItemBoxC3Status: number [] = [];
   // temp Variable - without API
   showMoreDetailsStatus: number = 0;
+  seatsA: number [] = [];
+  seatsB: number [] = [];
+  seatsC: number [] = [];
+  seatsD: number [] = [];
+  seatsE: number [] = [];
+  seatsF: number [] = [];
+
 
 
   constructor() { }
@@ -29,6 +36,7 @@ export class SearchResultsComponent implements OnInit {
 
   seatsReservation(data: string){
     console.log("seatsReservation", data);
+  console.log("seatsA", this.seatsA);
   }
 
 }
