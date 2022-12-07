@@ -1,3 +1,5 @@
+Link to live preview: https://book-flight-ticket-angular.herokuapp.com
+
 I am not finisht this project yet.
 Project uses 2 external API: Open Weather API and Travel Payouts from Rapid API.
 
