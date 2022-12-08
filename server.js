@@ -33,7 +33,7 @@ app.get('/*', function(req, res) {
    */
     var options = {
     method: 'GET',
-    url: '{https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=}',
+    url: 'https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=',
     headers: {
         //API key created in heroku
     'api-key': process.env.OpenWeatherAPIKey, 
