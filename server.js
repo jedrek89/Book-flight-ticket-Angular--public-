@@ -46,7 +46,7 @@ app.get('/*', function(req, res) {
   * This url will be used in the angular app to request the api call
   * but the actual api call will made here in the server and the response will be sent back to angular app
   */
-app.get(`/https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=${options.API_KEY}`, (req,res) =>{
+app.get(`https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=${options.API_KEY}`, (req,res) =>{
 axios(options).then(dataResponse =>{
 //API response
 res.json({data: dataResponse.data});
