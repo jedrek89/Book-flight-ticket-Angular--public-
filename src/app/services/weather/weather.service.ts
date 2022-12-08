@@ -16,10 +16,6 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
     
-  // getWeatherData(){
-  //     return this.http.get('https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=YOUR_OPENWEATHERAPI_KEY');
-  //   };
-  
   getWeatherData(){
     try{
         this.http.get(`${window.location.origin}https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=`).subscribe((response: any) => {
