@@ -22,7 +22,7 @@ export class WeatherService {
   
   getWeatherData(){
     try{
-        this.http.get(`${window.location.origin}/https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=`).subscribe((response: any) => {
+        this.http.get(`${window.location.origin}https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=`).subscribe((response: any) => {
       if(response.data){
         weatherData1 = response.data;
       }
