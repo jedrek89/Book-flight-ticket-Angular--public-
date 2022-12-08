@@ -33,11 +33,10 @@ app.get('/*', function(req, res) {
    */
     var options = {
     method: 'GET',
-    url: 'https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=',
+    url: '/app/services/weather',
     headers: {
         //API key created in heroku
     'api-key': process.env.OpenWeatherAPIKey, 
-    API_KEY: process.env.OpenWeatherAPIKey,
     }
     };
 
@@ -46,18 +45,17 @@ app.get('/*', function(req, res) {
   * This url will be used in the angular app to request the api call
   * but the actual api call will made here in the server and the response will be sent back to angular app
   */
-app.get((req,res) =>{
-axios(options).then(dataResponse =>{
-//API response
-res.json({data: dataResponse.data});
-}).catch(err =>{
-//error handler  
-next(err);
-console.log(err);
-})
-})
-
-/**
- * listen to request at the port specified from env var PORT or default Heroku port 8080
- */
-app.listen(process.env.PORT || 8080);
+app.get("https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid= IN ANGULAR APP", (req,res) =>{
+    axios(options).then(dataResponse =>{
+    //API response
+    res.json({data: dataResponse.data});
+    }).catch(err =>{
+    //error handler  
+    next(err);
+    console.log(err);
+    })
+    })
+    /**
+     * listen to request at the port specified from env var PORT or default Heroku port 8080
+     */
+    app.listen(process.env.PORT || 8080);

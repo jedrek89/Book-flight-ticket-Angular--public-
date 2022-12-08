@@ -17,8 +17,16 @@ export class WeatherService {
   rootURL = '/'
 
   getWeatherData(){
-      return weatherData1 = this.http.get(this.rootURL + '/data');
+    try{
+    this.http.get(`${window.location.origin}/https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=`).subscribe((response: any) => {
+    if(response.data){
+    //add code to use api data
     }
+    });
+    } catch(error){
+    //catch error
+    }
+}
 }
 
 
