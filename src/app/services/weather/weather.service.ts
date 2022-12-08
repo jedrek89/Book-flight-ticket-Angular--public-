@@ -17,7 +17,7 @@ export class WeatherService {
   rootURL = '/'
 
   getWeatherData(){
-      return this.http.get(this.rootURL + '/data');
+      return weatherData1 = this.http.get(this.rootURL + '/data');
     }
 }
 
