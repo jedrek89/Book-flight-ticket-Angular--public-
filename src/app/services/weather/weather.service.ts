@@ -16,7 +16,7 @@ export class WeatherService {
 
   getWeatherData(){
     try{
-    this.http.get(`${window.location.origin}/{/src/app/services/weather}`).subscribe((response: any) => {
+    this.http.get(`${window.location.origin}/{../../../../server.js}`).subscribe((response: any) => {
     if(response.data){
     console.log("response.data in weather.service.ts", response.data)
     let weatherData1 = response.data;
