@@ -20,7 +20,7 @@ export class WeatherService {
     try{
     this.http.get(`${window.location.origin}/https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=`).subscribe((response: any) => {
     if(response.data){
-    console.log(response.data)
+    console.log("response.data in weather.service.ts", response.data)
     }
     });
     } catch(error){

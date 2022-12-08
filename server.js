@@ -49,6 +49,7 @@ app.get("https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&
     axios(options).then(dataResponse =>{
     //API response
     res.json({data: dataResponse.data});
+    console.log("dataResponse - server.js", dataResponse)
     }).catch(err =>{
     //error handler  
     next(err);
