@@ -4,12 +4,6 @@ import { dateTimeFromAPI } from './content/content.component';
 import { clock } from './content/content.component';
 import { WeatherService, weatherData1 } from '../app/services/weather/weather.service';
 
-
-// let weatherData1: any;
-// export{
-//   weatherData1
-// }
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

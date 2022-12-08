@@ -13,14 +13,13 @@ export{
 export class WeatherService {
 
   constructor(private http: HttpClient) {}
-  
-  rootURL = '/'
 
   getWeatherData(){
     try{
-    this.http.get(`${window.location.origin}/https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=`).subscribe((response: any) => {
+    this.http.get(`${window.location.origin}/{/dist/angular/}`).subscribe((response: any) => {
     if(response.data){
     console.log("response.data in weather.service.ts", response.data)
+    let weatherData1 = response.data;
     }
     });
     } catch(error){
