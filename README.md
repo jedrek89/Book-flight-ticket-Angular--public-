@@ -1,4 +1,4 @@
-Link to live preview: https://book-flight-ticket-angular.herokuapp.com
+Link to live preview: https://majestic-twilight-bd8113.netlify.app
 
 I am not finisht this project yet.
 Project uses 2 external API: Open Weather API and Travel Payouts from Rapid API.
