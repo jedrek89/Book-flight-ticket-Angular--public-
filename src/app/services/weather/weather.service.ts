@@ -1,31 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-let weatherData1: any;
-
-export{
-  weatherData1
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
+    key: string = 'YOUR_KEY';
+    url: string = 'YOUR_URL';
+
+    // Backend url
+    baseurl = 'http://localhost:4300';
 
   constructor(private http: HttpClient) {}
-
+    
   getWeatherData(){
-    try{
-    this.http.get(`${window.location.origin}../../../../server.js`).subscribe((response: any) => {
-    if(response.data){
-    console.log("response.data in weather.service.ts", response.data)
-    let weatherData1 = response.data;
-    }
-    });
-    } catch(error){
-    //catch error
-    }
-}
+      return this.http.get(`https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=${this.key}`);
+    };
+  
 }
 
 

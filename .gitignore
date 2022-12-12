@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+server — kopia.js
 
 # Node
 /node_modules

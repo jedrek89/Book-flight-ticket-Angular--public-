@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService, weatherData1 } from '../services/weather/weather.service';
+import { WeatherService } from '../services/weather/weather.service';
 import { dateTimeFromAPI } from '../content/content.component';
+import { weatherData1 } from '../app.component'
 
 let dayName: string [] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 // var weatherEl = 0;

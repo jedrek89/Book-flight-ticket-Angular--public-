@@ -11,7 +11,7 @@ export class FlightDataAPIService {
     headers: {
       'X-Access-Token': 'YOUR_TOKEN',
       'X-RapidAPI-Host': 'travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com',
-      'X-RapidAPI-Key': 'YOUR_API_KEY'
+      'X-RapidAPI-Key': 'YOUR_KEY'
     }
   };
 
