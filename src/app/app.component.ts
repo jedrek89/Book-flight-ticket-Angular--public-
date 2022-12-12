@@ -28,19 +28,19 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     console.log("app init");
-    // this.WeatherService.getWeatherData().subscribe( (data:any) => {(weatherData1 = data);
-    //   weatherData1 = data;
-    //   console.log("weatherData1 from API", weatherData1);
-    //   return weatherData1;
-    //   })
-
-
-      this.WeatherService.getWeatherData().subscribe((response) =>{
-        console.log('Response from proxy - API', response)
-      }, (error) => {
-        console.log('error is: ', error);
-      
+    this.WeatherService.getWeatherData().subscribe( (data:any) => {(weatherData1 = data);
+      weatherData1 = data;
+      console.log("weatherData1 from API", weatherData1);
+      return weatherData1;
       })
+
+
+      // this.WeatherService.getWeatherData().subscribe((response) =>{
+      //   console.log('Response from proxy - API', response)
+      // }, (error) => {
+      //   console.log('error is: ', error);
+      
+      // })
     
 
 }}

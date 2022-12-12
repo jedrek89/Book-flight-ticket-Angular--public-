@@ -24,11 +24,11 @@ console.log(error);
 })
 
 // fetch data from API to console to /api/weather
-app.get('/api/weather', (req,res) =>{
+app.get('/api', (req,res) =>{
 axios(`${process.env.OpenWeatherURL}${process.env.OpenWeatherKey}`)
 .then(response => {
 res.send("weather API works!")
-console.log(response);
+console.log(response.data);
 })
 .catch(error => {
 console.log(error);

@@ -11,7 +11,7 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
     
   getWeatherData(){
-      return this.http.get('/api/weather');
+      return this.http.get('/api');
     };
   
 }
