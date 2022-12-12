@@ -27,15 +27,15 @@ console.log(error);
 
 // fetch data from API to console to /api/weather
 app.get('/api/weather', (req,res) =>{
-    axios(`${process.env.OpenWeatherURL}${process.env.OpenWeatherKey}`)
-    .then(response => {
-    res.send("weather API works!")
-    console.log(response);
-    })
-    .catch(error => {
-    console.log(error);
-    });
-    })
+axios(`${process.env.OpenWeatherURL}${process.env.OpenWeatherKey}`)
+.then(response => {
+res.send("weather API works!")
+console.log(response);
+})
+.catch(error => {
+console.log(error);
+});
+})
 
 
 // listen port
