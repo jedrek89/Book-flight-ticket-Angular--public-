@@ -5,8 +5,6 @@ router = express.Router();
 var https = require('https');
 const app = express();
 
-const users = [];
-
 // display values from .env file
 // console.log("weatherOptions", weatherOptions);
 
@@ -39,4 +37,4 @@ console.log(error);
 
 
 // listen port
-app.listen(4300);
+app.listen(3000);
