@@ -9,12 +9,12 @@ export class WeatherService {
     url: string = 'YOUR_URL';
 
     // Backend url
-    baseurl = 'http://localhost:4300';
+    baseurl = 'http://localhost:4300/api/weather';
 
   constructor(private http: HttpClient) {}
     
   getWeatherData(){
-      return this.http.get(`https://api.openweathermap.org/data/2.5/forecast?q=warsaw&units=metric&lang=en&&appid=${this.key}`);
+      return this.http.get('https://localhost:4300/api/wetaher');
     };
   
 }
