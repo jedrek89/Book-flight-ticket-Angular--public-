@@ -12,16 +12,16 @@ const app = express();
 app.use(express.static(__dirname + "/dist/angular"));
 
 // fetch data from API to console to /api/time
-app.get('/api/time', (req,res) =>{
-axios(process.env.WorldTimeURL)
-.then(response => {
-res.send("time API works!")
-console.log(response);
-})
-.catch(error => {
-console.log(error);
-});
-})
+// app.get('/api/time', (req,res) =>{
+// axios(process.env.WorldTimeURL)
+// .then(response => {
+// res.send("time API works!")
+// console.log(response);
+// })
+// .catch(error => {
+// console.log(error);
+// });
+// })
 
 // fetch data from API to console to /api/weather
 app.get('/api', (req,res) =>{
