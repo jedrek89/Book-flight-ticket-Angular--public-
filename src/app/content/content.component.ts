@@ -37,6 +37,7 @@ let dateTimeFromAPI = {
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
+
 export class ContentComponent implements OnInit {
   input1Value: string = "";
   input2Value: string = "";
@@ -51,12 +52,13 @@ export class ContentComponent implements OnInit {
   flyToValArrSliced: string[] = [];
   input1Hint :string = "";
   input4Hint :string = "";
-
+  
   constructor(private WorldTimeAPIService: WorldTimeAPIService, private FlightDataAPIService: FlightDataAPIService, private router: Router){}
   // @ViewChild('input1') input1: ElementRef;
   ngOnInit(): void {
     // Berlin TZ = Warsaw TZ
-    this.runWorldTimeAPI('Europe', 'Berlin');
+    // this.runWorldTimeAPI('Europe', 'Berlin');
+
   }
   
 
@@ -186,4 +188,5 @@ export function clock(val1: number, val2: number, val3: number){
   // return console.log("time in app components: ",dateTimeFromAPI);
   return dateTimeFromAPI;
 }
+
 

@@ -5,15 +5,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class WeatherService {
-    key: string = 'YOUR_KEY';
-    url: string = 'YOUR_URL';
 
   constructor(private http: HttpClient) {}
     
-  getWeatherData(){
+    getWeatherData() {
       return this.http.get('/api');
-    };
-  
+    }
 }
 
 
