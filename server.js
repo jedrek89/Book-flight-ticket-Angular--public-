@@ -5,7 +5,6 @@ router = express.Router();
 var https = require('https');
 const app = express();
 const PORT = 3000;
-var weatherData= [];
 
 // display values from .env file
 // console.log("weatherOptions", weatherOptions);
@@ -18,6 +17,7 @@ app.get('/api/time', (req,res) =>{
     axios(process.env.WorldTimeURL)
     .then(response => {
         res.json(response.data);
+        console.log(response);
     })
     .catch(error => {console.log(error);
     });
@@ -27,17 +27,12 @@ app.get('/api/time', (req,res) =>{
 app.get('/api/weather', (req,res) =>{
     axios(`${process.env.OpenWeatherURL}${process.env.OpenWeatherKey}`)
     .then(response => {
-        // send respond to json - visible in browser
+        // send respond to json - visible in browser in JSON format
         res.json(response.data);
-        // send normal respond
-        // res.send(response);
-        // display fetched data to node.js console
-        // console.log(weatherData);
     })
     .catch(error => {console.log(error);
     });
 })
-
 
 
 // listen port

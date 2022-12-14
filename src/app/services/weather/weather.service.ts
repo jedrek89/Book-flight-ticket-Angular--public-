@@ -16,12 +16,15 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
     
     getWeatherData(){
-      return this.http.get('/api/weather').subscribe(
-        response => {
+      this.http.get('/api/weather').subscribe(response => {
           console.log(response);
+          this.weatherData = response;
+          
+        }, (error) => {
+          console.log('error in getWeatherData: ', error);
         })
+        return this.weatherData;
     }
+
 }
-
-
 
