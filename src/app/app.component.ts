@@ -31,13 +31,15 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log("app init");
 
-      this.WeatherService.getWeatherData().subscribe((response) =>{
-        this.data = response;
-        // console.log('Response from proxy - API', response.valueOf)
-        console.log('this.data[]: ', this.data);
-      }, (error) => {
-        console.log('error is: ', error);
-      })
+    this.WeatherService.getWeatherData();
+
+      // this.WeatherService.getWeatherData().subscribe((response) =>{
+      //   this.data = response;
+      //   // console.log('Response from proxy - API', response.valueOf)
+      //   console.log('this.data[]: ', this.data);
+      // }, (error) => {
+      //   console.log('error is: ', error);
+      // })
 
 }
 
