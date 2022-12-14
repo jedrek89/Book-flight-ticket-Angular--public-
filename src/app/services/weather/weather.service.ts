@@ -10,18 +10,16 @@ export class WeatherService {
   public weatherData :any;
 
   ngOnInit(): void {
-    this.getWeatherData();
+    // this.getWeatherData();
   }
 
   constructor(private http: HttpClient) {}
     
-    getWeatherData() {
-      return this.http.get<any>('/api/weather').subscribe(
+    getWeatherData(){
+      return this.http.get('/api/weather').subscribe(
         response => {
           console.log(response);
-          this.getWeatherData = response;
-        }
-      );
+        })
     }
 }
 
