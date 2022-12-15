@@ -33,9 +33,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "server.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -89,10 +87,7 @@
           "options": {
             "browserTarget": "Angular:build",
             "allowedCommonJsDependencies": ["lodash"],
-            "proxyConfig": "proxy.conf.json",
-            "scripts": [
-              "server.js"
-            ]
+            "proxyConfig": "proxy.conf.json"
           }
         },
         "test": {
