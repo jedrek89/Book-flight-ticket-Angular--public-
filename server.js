@@ -37,7 +37,7 @@ app.get('/api/weather', (req,res) =>{
 
 app.get('/', (req,res) => {
     res.sendFile(process.cwd()+"/dist/angular/index.html")
-  });
+});
 
 // listen port
 app.listen(PORT, () => console.log(`server running on PORT: ${PORT}`))
