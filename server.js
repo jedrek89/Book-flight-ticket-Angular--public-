@@ -6,11 +6,12 @@ var https = require('https');
 const app = express();
 const PORT = 3000;
 
+app.use(express.static(process.cwd()+"/dist/angular/"));
 // display values from .env file
 // console.log("weatherOptions", weatherOptions);
 
 // static preview Angular App
-app.use(express.static(__dirname + "/dist/angular"));
+// app.use(express.static(__dirname + "/dist/angular"));
 
 // fetch data from Wolrd Time API to console to /api/time
 app.get('/api/time', (req,res) =>{
@@ -34,6 +35,9 @@ app.get('/api/weather', (req,res) =>{
     });
 })
 
+app.get('/', (req,res) => {
+    res.sendFile(process.cwd()+"/dist/angular/index.html")
+  });
 
 // listen port
 app.listen(PORT, () => console.log(`server running on PORT: ${PORT}`))
