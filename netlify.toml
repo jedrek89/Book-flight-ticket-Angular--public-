@@ -1,6 +1,3 @@
-[build]
-base = "dist/angular"
-
 [functions]
 directory = 'netlify/functions'
 
@@ -8,8 +5,3 @@ directory = 'netlify/functions'
 from = "/api/"
 to = "/.netlify/funtcions/"
 status = 200
-
-[dev]
-  command = "yarn start"
-  port = 8888
-  publish = "dist/angular"
