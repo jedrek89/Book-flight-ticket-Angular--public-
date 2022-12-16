@@ -40,7 +40,7 @@ yarn-error.log
 testem.log
 /typings
 /server/.env
-/.env
+.env
 
 
 # System files

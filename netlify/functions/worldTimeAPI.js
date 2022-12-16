@@ -1,13 +1,12 @@
-exports.handler = async function(event, context) {
-    const WorldTimeURL = process.env.WorldTimeURL;
-    fetch(`${WorldTimeURL}`)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+import fetch from 'node-fetch';
 
-    // return{
-    //     // statusCode: 200,
-    //     // body: JSON.stringify({message: 'Netlify function works!!'})
-    //     statusCode: 200,
-    //     body: JSON.stringify({data})
-    // }
+exports.handler = async function(event, context) {
+    const WorldTimeAPI = 'https://worldtimeapi.org/api/timezone/Europe/Berlin'
+    const response = await fetch(WorldTimeAPI)
+    const data = await response.json()
+
+    return{
+    statusCode: 200,
+    body: JSON.stringify({message: data})
+    }
 }
