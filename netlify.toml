@@ -1,9 +1,10 @@
 [build]
 
+publish = 'dist/angular'
 functions = 'functions'
-
+publish = 'netlify/functions'
 
 [[redirects]]
 from = "/api/*"
-to = "/.netlify/funcions/:splat"
+to = "/.netlify/funtcions/:splat"
 status = 200
