@@ -16,7 +16,9 @@ export class WeatherService {
   constructor(private http: HttpClient) {}
     
     getWeatherData(){
-      this.http.get('/api/weather').subscribe(response => {
+      
+      // this.http.get('/api/weather').subscribe(response => {
+      this.http.get('.netlify/functions/helloWorld').subscribe(response => {
           console.log(response);
           this.weatherData = response;
           

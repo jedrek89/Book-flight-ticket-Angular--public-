@@ -49,3 +49,6 @@ Thumbs.db
 
 # toDoList
 toDoList
+
+# Local Netlify folder
+.netlify
