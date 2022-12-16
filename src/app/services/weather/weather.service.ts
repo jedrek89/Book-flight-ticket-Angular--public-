@@ -18,7 +18,7 @@ export class WeatherService {
     getWeatherData(){
       
       // this.http.get('/api/weather').subscribe(response => {
-      this.http.get('.netlify/functions/helloWorld').subscribe(response => {
+      this.http.get('.netlify/functions/worldTimeAPI').subscribe(response => {
           console.log(response);
           this.weatherData = response;
           
