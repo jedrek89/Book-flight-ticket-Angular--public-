@@ -1,10 +1,15 @@
 [build]
+base = "dist/angular"
 
-publish = 'dist/angular'
-functions = 'functions'
-publish = 'netlify/functions'
+[functions]
+directory = 'netlify/functions'
 
 [[redirects]]
-from = "/api/*"
-to = "/.netlify/funtcions/:splat"
+from = "/api/"
+to = "/.netlify/funtcions/"
 status = 200
+
+[dev]
+  command = "yarn start"
+  port = 8888
+  publish = "dist/angular"
