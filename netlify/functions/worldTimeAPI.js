@@ -1,5 +1,5 @@
 exports.handler = async function(event, context) {
-    fetch(`${Deno.env.get("MY_IMPORTANT_VARIABLE")}`)
+    fetch(`${Deno.env.get("WorldTimeURL")}`)
     .then((response) => response.json())
     .then((data) => console.log(data));
 
