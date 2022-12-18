@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 let flightData = {
   flyFrom: "",
   flyTo: "",
+  departure: "",
+  return: "",
+  passNum: "",
+  currency: "",
   dataAPI: {
     data: [],
   },
@@ -142,14 +146,17 @@ export class ContentComponent implements OnInit {
   }
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
-    this.FlightDataAPIService.getFlightData(flyFrom, departDate, passNum, flyTo, returnDate, currency).subscribe((data:any) => 
-    {(flightData.dataAPI = data);
       flightData.flyFrom = flyFrom;
+      flightData.departure = departDate;
+      flightData.passNum = passNum;
       flightData.flyTo = flyTo;
+      flightData.return = returnDate;
+      flightData.currency = currency;
       //get data from API and go to results subpage through router
+      this.FlightDataAPIService.getFlightData() 
       this.router.navigate(['/', 'search-results']);
       return flightData;
-    });   
+    
     }
 }
 

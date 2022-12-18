@@ -1,11 +1,20 @@
 import fetch from 'node-fetch';
+import flightData from '../../src/app/services/flightDataAPI/flight-data-api.service'
 
+
+options = {
+    method: 'GET',
+    headers: {
+        'X-Access-Token': process.env.FlightDataToken,
+        'xRapidAPIHost': process.env.xRapidAPIHost,
+        'X-RapidAPI-Key': process.env.FlightDataKey,
+    }
+};
 
 
 exports.handler = async function(event, context) {
-    const response = await fetch(`${process.env.FlightDataUrl}${flyToVal}&origin=${flyFromVal}&currency=${currency}&show_to_affiliates=true&depart_date=${departDate}&return_date=${returnDate}`)
+    const response = await fetch(`${process.env.FlightDataUrl}${flightData.flyTo}&origin=${flightData.flyFrom}&currency=${flightData.currency}&show_to_affiliates=true&depart_date=${flightData.departure}&return_date=${flightData.return}`, options)
     const data = await response.json()
-
     return{
     statusCode: 200,
     body: JSON.stringify({message: data})
