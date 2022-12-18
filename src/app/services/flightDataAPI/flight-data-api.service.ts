@@ -18,15 +18,19 @@ export class FlightDataAPIService {
   
   getFlightData(){
 
+      // this.http.post<JSON>('.netlify/functions/flightDataAPI', {
+      //   title: 'test',
+      //   body: 'test',
+      // });
+
       this.http.get('.netlify/functions/flightDataAPI').subscribe(response => {
               console.log(response);
               this.flightDataAPI = response;
-              flightData.dataAPI.data = this.flightDataAPI.data;
-              
+              console.log("getFlightData works!!", this.flightDataAPI);
             }, (error) => {
               console.log('error in getWeatherData: ', error);
             })
-            return console.log("getFlightData works!!", this.flightDataAPI)
+            return console.log("getFlightData works!!", this.flightDataAPI);
 
   };
   

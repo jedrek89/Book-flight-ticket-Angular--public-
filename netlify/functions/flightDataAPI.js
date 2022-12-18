@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import flightData from '../../src/app/services/flightDataAPI/flight-data-api.service'
+import { flightData } from '../../src/app/content/content.component'
 
 
 options = {
@@ -19,4 +19,5 @@ exports.handler = async function(event, context) {
     statusCode: 200,
     body: JSON.stringify({message: data})
     }
+
 }

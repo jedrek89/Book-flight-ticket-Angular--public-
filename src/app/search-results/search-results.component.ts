@@ -24,7 +24,7 @@ export class SearchResultsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log("flightDataFromAPI", this.flightDataFromAPI);
+    console.log("flightDataFromAPI from form in homepage", this.flightDataFromAPI);
     this.showItemBoxC3Status.length = this.flightDataFromAPI.dataAPI.data.length;
     this.showItemBoxC3Status.fill(0);
   }

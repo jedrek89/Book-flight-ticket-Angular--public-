@@ -146,10 +146,10 @@ export class ContentComponent implements OnInit {
   }
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
-      flightData.flyFrom = flyFrom;
+      flightData.flyFrom = flyFrom.substring(flyFrom.length -3);
       flightData.departure = departDate;
       flightData.passNum = passNum;
-      flightData.flyTo = flyTo;
+      flightData.flyTo = flyTo.substring(flyTo.length -3);
       flightData.return = returnDate;
       flightData.currency = currency;
       //get data from API and go to results subpage through router
