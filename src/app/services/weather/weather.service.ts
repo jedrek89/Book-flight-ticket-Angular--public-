@@ -11,6 +11,7 @@ export class WeatherService {
 
   ngOnInit(): void {
     // this.getWeatherData();
+    
   }
 
   constructor(private http: HttpClient) {}
