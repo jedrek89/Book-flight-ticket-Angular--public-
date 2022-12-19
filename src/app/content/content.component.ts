@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
 // import { SearchResultsComponent } from '../search-results/search-results.component';
 
 let flightData = {
-  flyFrom: "",
-  flyTo: "",
-  departure: "",
-  return: "",
-  passNum: "",
-  currency: "",
+  flyFrom: "WAW",
+  departureDate: "2022-12-19",
+  passNum: "1",
+  flyTo: "LON",
+  returnDate: "2022-12-19",
+  currency: "USD",
   dataAPI: {
     data: [],
   },
@@ -147,10 +147,10 @@ export class ContentComponent implements OnInit {
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
       flightData.flyFrom = flyFrom.substring(flyFrom.length -3);
-      flightData.departure = departDate;
+      flightData.departureDate = departDate;
       flightData.passNum = passNum;
       flightData.flyTo = flyTo.substring(flyTo.length -3);
-      flightData.return = returnDate;
+      flightData.returnDate = returnDate;
       flightData.currency = currency;
       //get data from API and go to results subpage through router
       this.FlightDataAPIService.getFlightData() 

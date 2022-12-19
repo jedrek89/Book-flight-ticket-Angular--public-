@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { flightData } from '../../content/content.component'
+import { flightData } from '../../content/content.component';
 
-export{
-  flightData
-}
-
-
+// export{
+//   flightData
+// }
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +15,7 @@ export class FlightDataAPIService {
   constructor(private http: HttpClient) { }
   
   getFlightData(){
-
-      // this.http.post<JSON>('.netlify/functions/flightDataAPI', {
-      //   title: 'test',
-      //   body: 'test',
-      // });
-
-      this.http.get('.netlify/functions/flightDataAPI').subscribe(response => {
+      this.http.get(`.netlify/functions/flightDataAPI?flyFrom=${flightData.flyFrom}&departureDate=${flightData.departureDate}&passNum=${flightData.passNum}&flyTo=${flightData.flyTo}&returnDate=${flightData.returnDate}&currency=${flightData.currency}`).subscribe(response => {
               console.log(response);
               this.flightDataAPI = response;
               console.log("getFlightData works!!", this.flightDataAPI);
