@@ -156,7 +156,6 @@ export class ContentComponent implements OnInit {
       this.FlightDataAPIService.getFlightData() 
       this.router.navigate(['/', 'search-results']);
       return flightData;
-    
     }
 }
 

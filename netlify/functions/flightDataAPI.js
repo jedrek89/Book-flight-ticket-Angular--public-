@@ -9,19 +9,37 @@ options = {
     }
 };
 
+// var eventBody;
 
-exports.handler = async function(event, context) {
-    const flyFrom = event.queryStringParameters.flyFrom || '';
-    const departureDate = event.queryStringParameters.departureDate || '';
-    const passNum = event.queryStringParameters.passNum || '';
-    const flyTo = event.queryStringParameters.flyTo || '';
-    const returnDate = event.queryStringParameters.returnDate || '';
-    const currency = event.queryStringParameters.currency || '';
-    const response = await fetch(`${process.env.FlightDataUrl}${flyTo}&origin=${flyFrom}&currency=${currency}&show_to_affiliates=true&depart_date=${departureDate}&return_date=${returnDate}`, options)
-    const data = await response.json()
-    const data2 = {flyFrom: `${flyFrom}`, departureDate: `${departureDate}`, passNum: `${passNum}`, flyTo: `${flyTo}`, flyTo: `${flyTo}`, returnDate: `${returnDate}`, currency: `${currency}`}
-    return{
-    statusCode: 200,
-    body: JSON.stringify({paramSend: data2, responseAPI: data})
+exports.handler = async function(event, context, callback) {
+    if (typeof event.body === 'undefined') {
+            // console.log("response", event.body);
+            return{
+                statusCode: 200,
+                body: JSON.stringify({"response": "event.body = undefined"}) 
+                }
     }
+
+    // if body from POST method exist
+    else{
+        let eventBody = JSON.parse(event.body); // convert JSON fromat to object
+        let flyFrom = eventBody.flyFrom;    // works!!
+        let departureDate = eventBody.departureDate;
+        let passNum = eventBody.passNum;
+        let flyTo = eventBody.flyTo;
+        let returnDate = eventBody.returnDate;
+        let currency = eventBody.currency;
+        // console.log("Get values from POST method: ", flyFrom, departureDate, passNum, flyTo, returnDate, currency);
+
+        // API call
+        let response = await fetch(`https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/v2/prices/week-matrix?destination=${flyTo}&origin=${flyFrom}&currency=${currency}&show_to_affiliates=true&depart_date=${departureDate}&return_date=${returnDate}`, options);
+        response = await response.json()
+        return{
+            statusCode: 200,
+            // body: JSON.stringify({"response":  JSON.stringify(postData)}) 
+            body: JSON.stringify(response)
+            // body: event.body // works!!
+            }
+    }
+
 }
