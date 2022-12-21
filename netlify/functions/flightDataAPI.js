@@ -13,7 +13,7 @@ exports.handler = async function(event, context, callback) {
     if (typeof event.body === 'undefined') {
         return{
             statusCode: 200,
-            body: JSON.stringify({"response": "event.body = undefined"}) 
+            body: JSON.stringify("bad request") 
         }
     }
 
