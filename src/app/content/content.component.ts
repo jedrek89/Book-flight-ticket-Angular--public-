@@ -7,7 +7,7 @@ import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.
 import { Router } from '@angular/router';
 // import { SearchResultsComponent } from '../search-results/search-results.component';
 
-let flightData = {
+let flightParam = {
   flyFrom: "WAW",
   departureDate: "2022-12-19",
   passNum: "1",
@@ -20,7 +20,7 @@ let flightData = {
 }
 
 export{
-  flightData, dateTimeFromAPI  
+  flightParam, dateTimeFromAPI  
 }
 
 // Object to store date & time (int/string) from API and clock function - global scope
@@ -146,16 +146,16 @@ export class ContentComponent implements OnInit {
   }
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
-      flightData.flyFrom = flyFrom.substring(flyFrom.length -3);
-      flightData.departureDate = departDate;
-      flightData.passNum = passNum;
-      flightData.flyTo = flyTo.substring(flyTo.length -3);
-      flightData.returnDate = returnDate;
-      flightData.currency = currency;
+      flightParam.flyFrom = flyFrom.substring(flyFrom.length -3);
+      flightParam.departureDate = departDate;
+      flightParam.passNum = passNum;
+      flightParam.flyTo = flyTo.substring(flyTo.length -3);
+      flightParam.returnDate = returnDate;
+      flightParam.currency = currency;
       //get data from API and go to results subpage through router
       this.FlightDataAPIService.getFlightData() 
       this.router.navigate(['/', 'search-results']);
-      return flightData;
+      return flightParam;
     }
 }
 

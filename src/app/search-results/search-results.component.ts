@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { flightData } from '../content/content.component';
+import { flightParam } from '../content/content.component';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { flightData } from '../content/content.component';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  flightDataFromAPI : any = flightData;
+  flightDataFromAPI : any = flightParam;
   showItemBoxC3Status: number [] = [];
   // temp Variable - without API
   showMoreDetailsStatus: number = 0;
