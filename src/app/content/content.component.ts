@@ -1,11 +1,10 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-// import { FormControl } from '@angular/forms';
 import { min } from 'rxjs';
 import { __values } from 'tslib';
 import { WorldTimeAPIService } from '../services/worldTimeApi/world-time-api.service';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 import { Router } from '@angular/router';
-// import { SearchResultsComponent } from '../search-results/search-results.component';
+import { response } from 'express';
 
 let flightParam = {
   flyFrom: "WAW",
@@ -153,8 +152,9 @@ export class ContentComponent implements OnInit {
       flightParam.returnDate = returnDate;
       flightParam.currency = currency;
       //get data from API and go to results subpage through router
-      this.FlightDataAPIService.getFlightData() 
-      this.router.navigate(['/', 'search-results']);
+      this.FlightDataAPIService.getFlightData();
+      // this.router.navigate(['/', 'search-results']);
+
       return flightParam;
     }
 }

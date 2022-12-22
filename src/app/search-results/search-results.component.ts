@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { flightParam } from '../content/content.component';
-
+import{ flightDataFromAPI } from '../services/flightDataAPI/flight-data-api.service'
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss']
 })
-export class SearchResultsComponent implements OnInit {
-  flightDataFromAPI : any = flightParam;
+
+export class SearchResultsComponent implements OnInit { 
+  flightData: any = flightDataFromAPI;
+  sizeOfFlightData = Object.keys(this.flightData.data).length;  // read size of object array
+  // convertArr: any [] = this.flightData.data.map(function (obj :any){
+  //   return obj.id;
+  // })
+
   showItemBoxC3Status: number [] = [];
-  // temp Variable - without API
   showMoreDetailsStatus: number = 0;
+  tempVal: any;
   seatsA: number [] = [];
   seatsB: number [] = [];
   seatsC: number [] = [];
@@ -19,14 +25,15 @@ export class SearchResultsComponent implements OnInit {
   seatsE: number [] = [];
   seatsF: number [] = [];
 
-
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-    // console.log("flightDataFromAPI from form in homepage", this.flightDataFromAPI);
-    this.showItemBoxC3Status.length = this.flightDataFromAPI.dataAPI.data.length;
+    console.log('search results init');
+    console.log('flightDataFromAPI', this.flightData);
+    this.showItemBoxC3Status.length = this.sizeOfFlightData;
     this.showItemBoxC3Status.fill(0);
+    console.log("this.showItemBoxC3Status.length", this.showItemBoxC3Status.length);
   }
 
   showItemBoxC3(data: any){

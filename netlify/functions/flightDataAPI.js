@@ -25,7 +25,7 @@ exports.handler = async function(event, context, callback) {
         response = await response.json()
         return{
             statusCode: 200,
-            body: JSON.stringify(response)
+            body: JSON.stringify(response),
         }
     }
 }
