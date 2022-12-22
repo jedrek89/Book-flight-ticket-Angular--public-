@@ -1,15 +1,14 @@
 Link to live preview: https://majestic-twilight-bd8113.netlify.app
 
+Basic info:
 I am not finisht this project yet.
 Project uses 2 external API: Open Weather API and Travel Payouts from Rapid API.
 
-To run weather widget you need to put your Open Weather API key to file src\app\services\weather\weather.service.ts - just replace "YOUR_OPENWEATHERAPI_KEY" in getWeatherData function.
+I build a Node.js backend for this app, but Netlify doesn't support them. I decided to create a fake backend using a Netlify Functions. 
+These functions written in java script are used in the .service files of the Angular framework - they are used to retrieve data and perform queries to external APIs. All this was to hide sensitive data (API keys).
 
-To run searchhning for connection you need to put your X-RapidAPI-Key-travelpayouts API key and X-Access-Token to file src\app\services\flightDataAPI\flight-data-api.service.ts - just replace: 'YOUR_API_KEY' and 'YOUR_TOKEN' in options object in FlightDataAPIService class.
-
+In the future, the layout of the site will be rebuilt
 I put RWD only for a content component so far
-
-
 
 # Angular
 
