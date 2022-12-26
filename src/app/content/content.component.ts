@@ -7,10 +7,12 @@ import { Router } from '@angular/router';
 import { response } from 'express';
 
 let flightParam = {
+  flyFromName: "",
   flyFrom: "WAW",
   departureDate: "2022-12-19",
   passNum: "1",
   flyTo: "LON",
+  flyToName: "",
   returnDate: "2022-12-19",
   currency: "USD",
   dataAPI: {
@@ -146,9 +148,11 @@ export class ContentComponent implements OnInit {
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
       flightParam.flyFrom = flyFrom.substring(flyFrom.length -3);
+      flightParam.flyFromName = flyFrom.substring(0, flyFrom.length -15);
       flightParam.departureDate = departDate;
       flightParam.passNum = passNum;
       flightParam.flyTo = flyTo.substring(flyTo.length -3);
+      flightParam.flyToName = flyTo.substring(0, flyTo.length -15);
       flightParam.returnDate = returnDate;
       flightParam.currency = currency;
       //get data from API and go to results subpage through router

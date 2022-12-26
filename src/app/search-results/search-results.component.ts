@@ -9,12 +9,9 @@ import{ flightDataFromAPI } from '../services/flightDataAPI/flight-data-api.serv
 })
 
 export class SearchResultsComponent implements OnInit { 
+  flightParameters: any = flightParam;
   flightData: any = flightDataFromAPI;
-  sizeOfFlightData = Object.keys(this.flightData.data).length;  // read size of object array
-  // convertArr: any [] = this.flightData.data.map(function (obj :any){
-  //   return obj.id;
-  // })
-
+  sizeOfFlightData: any; 
   showItemBoxC3Status: number [] = [];
   showMoreDetailsStatus: number = 0;
   tempVal: any;
@@ -29,11 +26,19 @@ export class SearchResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // is API response is ok
+    if (flightDataFromAPI) {
+      // get size of object array - data
+      this.sizeOfFlightData = Object.keys(this.flightData.data).length;
+      this.showItemBoxC3Status.length = this.sizeOfFlightData;
+      this.showItemBoxC3Status.fill(0);
+      console.log("this.showItemBoxC3Status", this.showItemBoxC3Status);
+      console.log("this.showItemBoxC3Status.length", this.showItemBoxC3Status.length);
+    }
     console.log('search results init');
-    console.log('flightDataFromAPI', this.flightData);
-    this.showItemBoxC3Status.length = this.sizeOfFlightData;
-    this.showItemBoxC3Status.fill(0);
-    console.log("this.showItemBoxC3Status.length", this.showItemBoxC3Status.length);
+    console.log('flightData', this.flightData);
+    console.log('flight param: ', flightParam);
+    console.log("flightParameters", this.flightParameters.flyFromName);
   }
 
   showItemBoxC3(data: any){
