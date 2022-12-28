@@ -48,22 +48,19 @@ export class SearchResultsComponent implements OnInit {
   showItemBoxC3(data: any){
     console.log("id clicked", data);
     (this.showItemBoxC3Status[data] === 1) ? this.showItemBoxC3Status[data] = 0 : this.showItemBoxC3Status[data] = 1;
+    return this.showItemBoxC3Status;
   }
 
   // Seats reservation
   seatsReservation(data1: string, data2 : number){
     (data1 === 'A' && this.seatsA[data2] === 0) ? this.seatsA[data2] = 1 : this.seatsA[data2] = 0;
-    console.log(`seats${data1}`+[data2]);
     (data1 === 'B' && this.seatsB[data2] === 0) ? this.seatsB[data2] = 1 : this.seatsB[data2] = 0;
-    console.log(`seats${data1}`+[data2]);
     (data1 === 'C' && this.seatsC[data2] === 0) ? this.seatsC[data2] = 1 : this.seatsC[data2] = 0;
-    console.log(`seats${data1}`+[data2]);
     (data1 === 'D' && this.seatsD[data2] === 0) ? this.seatsD[data2] = 1 : this.seatsD[data2] = 0;
-    console.log(`seats${data1}`+[data2]);
     (data1 === 'E' && this.seatsE[data2] === 0) ? this.seatsE[data2] = 1 : this.seatsE[data2] = 0;
-    console.log(`seats${data1}`+[data2]);
     (data1 === 'F' && this.seatsF[data2] === 0) ? this.seatsF[data2] = 1 : this.seatsF[data2] = 0;
     console.log(`seats${data1}`+[data2]);
+    return this.seatsA, this.seatsB, this.seatsC, this.seatsD, this.seatsE, this.seatsF;
   }
 
   // Seats arr init

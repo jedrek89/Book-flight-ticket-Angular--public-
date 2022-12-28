@@ -68,7 +68,6 @@
                                 <!-- Row A -->
                                 <div class="planeR1">
                                     <div class="labelLetter">A</div>
-                                    <!-- <button #A1 [ngClass]="{'seatFree' : this.seatsA[0] === 0, 'seatTaken' : this.seatsA[0] === 1}" (click)="seatsA[0] = 1" (dbclick)="this.seatsA[0] = 0">1</button> -->
                                     <div *ngFor="let seat of this.seatsA, index as i">
                                         <button #Ai [ngClass]="{'seatFree' : this.seatsA[i] === 0, 'seatTaken' : this.seatsA[i] === 1}" (click)="seatsReservation('A', i)">{{i+1}}</button>
                                     </div>
@@ -77,215 +76,40 @@
                                 <!-- Row B -->
                                 <div class="planeR2">
                                     <div class="labelLetter">B</div>
-                                    <button class="seatFree">1</button>
-                                    <button class="seatFree">2</button>
-                                    <button class="seatFree">3</button>
-                                    <button class="seatFree">4</button>
-                                    <button class="seatFree">5</button>
-                                    <button class="seatFree">6</button>
-                                    <button class="seatFree">7</button>
-                                    <button class="seatFree">8</button>
-                                    <button class="seatFree">9</button>
-                                    <button class="seatFree">10</button>
-                                    <button class="seatFree">11</button>
-                                    <button class="seatFree">12</button>
-                                    <button class="seatFree">13</button>
-                                    <button class="seatFree">14</button>
-                                    <button class="seatFree">15</button>
-                                    <button class="seatFree">16</button>
-                                    <button class="seatFree">17</button>
-                                    <button class="seatFree">18</button>
-                                    <button class="seatFree">19</button>
-                                    <button class="seatFree">20</button>
-                                    <button class="seatFree">21</button>
-                                    <button class="seatFree">22</button>
-                                    <button class="seatFree">23</button>
-                                    <button class="seatFree">24</button>
-                                    <button class="seatFree">25</button>
-                                    <button class="seatFree">26</button>
-                                    <button class="seatFree">27</button>
-                                    <button class="seatFree">28</button>
-                                    <button class="seatFree">29</button>
-                                    <button class="seatFree">30</button>
-                                    <button class="seatFree">31</button>
-                                    <button class="seatFree">32</button>
-                                    <button class="seatFree">33</button>
-                                    <button class="seatFree">34</button>
-                                    <button class="seatFree">35</button>
-                                    <button class="seatFree">36</button>
-                                    <button class="seatFree">37</button>
-                                    <button class="seatFree">38</button>
+                                    <div *ngFor="let seat of this.seatsB, index as i">
+                                        <button #Bi [ngClass]="{'seatFree' : this.seatsB[i] === 0, 'seatTaken' : this.seatsB[i] === 1}" (click)="seatsReservation('B', i)">{{i+1}}</button>
+                                    </div>
                                 </div>
                                 <!-- Row C -->
                                 <div class="planeR3">
                                     <div class="labelLetter">C</div>
-                                    <button class="seatFree">1</button>
-                                    <button class="seatFree">2</button>
-                                    <button class="seatFree">3</button>
-                                    <button class="seatFree">4</button>
-                                    <button class="seatFree">5</button>
-                                    <button class="seatFree">6</button>
-                                    <button class="seatFree">7</button>
-                                    <button class="seatFree">8</button>
-                                    <button class="seatFree">9</button>
-                                    <button class="seatFree">10</button>
-                                    <button class="seatFree">11</button>
-                                    <button class="seatFree">12</button>
-                                    <button class="seatFree">13</button>
-                                    <button class="seatFree">14</button>
-                                    <button class="seatFree">15</button>
-                                    <button class="seatFree">16</button>
-                                    <button class="seatFree">17</button>
-                                    <button class="seatFree">18</button>
-                                    <button class="seatFree">19</button>
-                                    <button class="seatFree">20</button>
-                                    <button class="seatFree">21</button>
-                                    <button class="seatFree">22</button>
-                                    <button class="seatFree">23</button>
-                                    <button class="seatFree">24</button>
-                                    <button class="seatFree">25</button>
-                                    <button class="seatFree">26</button>
-                                    <button class="seatFree">27</button>
-                                    <button class="seatFree">28</button>
-                                    <button class="seatFree">29</button>
-                                    <button class="seatFree">30</button>
-                                    <button class="seatFree">31</button>
-                                    <button class="seatFree">32</button>
-                                    <button class="seatFree">33</button>
-                                    <button class="seatFree">34</button>
-                                    <button class="seatFree">35</button>
-                                    <button class="seatFree">36</button>
-                                    <button class="seatFree">37</button>
-                                    <button class="seatFree">38</button>
+                                    <div *ngFor="let seat of this.seatsC, index as i">
+                                        <button #Ci [ngClass]="{'seatFree' : this.seatsC[i] === 0, 'seatTaken' : this.seatsC[i] === 1}" (click)="seatsReservation('C', i)">{{i+1}}</button>
+                                    </div>
                                 </div>
     
                                 <div class="separator"></div>
     
                             <!-- Row D -->
-                                <div class="planeR4">
-                                    <div class="labelLetter">D</div>
-                                    <button class="seatFree">1</button>
-                                    <button class="seatFree">2</button>
-                                    <button class="seatFree">3</button>
-                                    <button class="seatFree">4</button>
-                                    <button class="seatFree">5</button>
-                                    <button class="seatFree">6</button>
-                                    <button class="seatFree">7</button>
-                                    <button class="seatFree">8</button>
-                                    <button class="seatFree">9</button>
-                                    <button class="seatFree">10</button>
-                                    <button class="seatFree">11</button>
-                                    <button class="seatFree">12</button>
-                                    <button class="seatFree">13</button>
-                                    <button class="seatFree">14</button>
-                                    <button class="seatFree">15</button>
-                                    <button class="seatFree">16</button>
-                                    <button class="seatFree">17</button>
-                                    <button class="seatFree">18</button>
-                                    <button class="seatFree">19</button>
-                                    <button class="seatFree">20</button>
-                                    <button class="seatFree">21</button>
-                                    <button class="seatFree">22</button>
-                                    <button class="seatFree">23</button>
-                                    <button class="seatFree">24</button>
-                                    <button class="seatFree">25</button>
-                                    <button class="seatFree">26</button>
-                                    <button class="seatFree">27</button>
-                                    <button class="seatFree">28</button>
-                                    <button class="seatFree">29</button>
-                                    <button class="seatFree">30</button>
-                                    <button class="seatFree">31</button>
-                                    <button class="seatFree">32</button>
-                                    <button class="seatFree">33</button>
-                                    <button class="seatFree">34</button>
-                                    <button class="seatFree">35</button>
-                                    <button class="seatFree">36</button>
-                                    <button class="seatFree">37</button>
-                                    <button class="seatFree">38</button>
+                            <div class="planeR4">
+                                <div class="labelLetter">D</div>
+                                <div *ngFor="let seat of this.seatsD, index as i">
+                                    <button #Di [ngClass]="{'seatFree' : this.seatsD[i] === 0, 'seatTaken' : this.seatsD[i] === 1}" (click)="seatsReservation('D', i)">{{i+1}}</button>
                                 </div>
+                            </div>
                                 <!-- Row E -->
                                 <div class="planeR5">
                                     <div class="labelLetter">E</div>
-                                    <button class="seatFree">1</button>
-                                    <button class="seatFree">2</button>
-                                    <button class="seatFree">3</button>
-                                    <button class="seatFree">4</button>
-                                    <button class="seatFree">5</button>
-                                    <button class="seatFree">6</button>
-                                    <button class="seatFree">7</button>
-                                    <button class="seatFree">8</button>
-                                    <button class="seatFree">9</button>
-                                    <button class="seatFree">10</button>
-                                    <button class="seatFree">11</button>
-                                    <button class="seatFree">12</button>
-                                    <button class="seatFree">13</button>
-                                    <button class="seatFree">14</button>
-                                    <button class="seatFree">15</button>
-                                    <button class="seatFree">16</button>
-                                    <button class="seatFree">17</button>
-                                    <button class="seatFree">18</button>
-                                    <button class="seatFree">19</button>
-                                    <button class="seatFree">20</button>
-                                    <button class="seatFree">21</button>
-                                    <button class="seatFree">22</button>
-                                    <button class="seatFree">23</button>
-                                    <button class="seatFree">24</button>
-                                    <button class="seatFree">25</button>
-                                    <button class="seatFree">26</button>
-                                    <button class="seatFree">27</button>
-                                    <button class="seatFree">28</button>
-                                    <button class="seatFree">29</button>
-                                    <button class="seatFree">30</button>
-                                    <button class="seatFree">31</button>
-                                    <button class="seatFree">32</button>
-                                    <button class="seatFree">33</button>
-                                    <button class="seatFree">34</button>
-                                    <button class="seatFree">35</button>
-                                    <button class="seatFree">36</button>
-                                    <button class="seatFree">37</button>
-                                    <button class="seatFree">38</button>
+                                    <div *ngFor="let seat of this.seatsE, index as i">
+                                        <button #Ei [ngClass]="{'seatFree' : this.seatsE[i] === 0, 'seatTaken' : this.seatsE[i] === 1}" (click)="seatsReservation('E', i)">{{i+1}}</button>
+                                    </div>
                                 </div>
                                 <!-- Row F -->
                                 <div class="planeR6">
                                     <div class="labelLetter">F</div>
-                                    <button class="seatFree">1</button>
-                                    <button class="seatFree">2</button>
-                                    <button class="seatFree">3</button>
-                                    <button class="seatFree">4</button>
-                                    <button class="seatFree">5</button>
-                                    <button class="seatFree">6</button>
-                                    <button class="seatFree">7</button>
-                                    <button class="seatFree">8</button>
-                                    <button class="seatFree">9</button>
-                                    <button class="seatFree">10</button>
-                                    <button class="seatFree">11</button>
-                                    <button class="seatFree">12</button>
-                                    <button class="seatFree">13</button>
-                                    <button class="seatFree">14</button>
-                                    <button class="seatFree">15</button>
-                                    <button class="seatFree">16</button>
-                                    <button class="seatFree">17</button>
-                                    <button class="seatFree">18</button>
-                                    <button class="seatFree">19</button>
-                                    <button class="seatFree">20</button>
-                                    <button class="seatFree">21</button>
-                                    <button class="seatFree">22</button>
-                                    <button class="seatFree">23</button>
-                                    <button class="seatFree">24</button>
-                                    <button class="seatFree">25</button>
-                                    <button class="seatFree">26</button>
-                                    <button class="seatFree">27</button>
-                                    <button class="seatFree">28</button>
-                                    <button class="seatFree">29</button>
-                                    <button class="seatFree">30</button>
-                                    <button class="seatFree">31</button>
-                                    <button class="seatFree">32</button>
-                                    <button class="seatFree">33</button>
-                                    <button class="seatFree">34</button>
-                                    <button class="seatFree">35</button>
-                                    <button class="seatFree">36</button>
-                                    <button class="seatFree">37</button>
-                                    <button class="seatFree">38</button>
+                                    <div *ngFor="let seat of this.seatsF, index as i">
+                                        <button #Fi [ngClass]="{'seatFree' : this.seatsF[i] === 0, 'seatTaken' : this.seatsF[i] === 1}" (click)="seatsReservation('F', i)">{{i+1}}</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
