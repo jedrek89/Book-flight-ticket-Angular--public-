@@ -76,7 +76,6 @@ export class SearchResultsComponent implements OnInit {
     if (data1 === 'F'){
       (this.seatsF[data2] === 0) ? this.seatsF[data2] = 1 : this.seatsF[data2] = 0;
     }
-    console.log(`seats${data1}`+[data2]);
     return this.seatsA, this.seatsB, this.seatsC, this.seatsD, this.seatsE, this.seatsF;
   }
 

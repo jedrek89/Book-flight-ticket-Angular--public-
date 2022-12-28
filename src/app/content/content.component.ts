@@ -10,7 +10,7 @@ let flightParam = {
   flyFromName: "",
   flyFrom: "WAW",
   departureDate: "2022-12-19",
-  passNum: "1",
+  passNum: '1',
   flyTo: "LON",
   flyToName: "",
   returnDate: "2022-12-19",
@@ -146,7 +146,7 @@ export class ContentComponent implements OnInit {
     this.autocompleteStatus2 = 0;
   }
 
-  getFlightParameters(flyFrom: string, departDate: string, passNum: any, flyTo: string, returnDate: string, currency: string) {
+  getFlightParameters(flyFrom: string, departDate: string, passNum: string, flyTo: string, returnDate: string, currency: string) {
       flightParam.flyFrom = flyFrom.substring(flyFrom.length -3);
       flightParam.flyFromName = flyFrom.substring(0, flyFrom.length -15);
       flightParam.departureDate = departDate;

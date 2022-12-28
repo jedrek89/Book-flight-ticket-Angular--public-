@@ -149,7 +149,7 @@ body{
                 padding: 5px 5px 5px 5px;
                 display: flex;
                 flex-direction: column;
-                transition: 0.8s;
+                transition: 0.5s;
             }
 
             .seatsReservation{
@@ -244,6 +244,10 @@ body{
                 margin: 2.5px 0px 0px 4px;
                 border: 0.5px solid black;
                 background-color: #2afe0077;
+            }
+
+            .seatFree:hover{
+                background-color: #fe9800;
             }
 
             .seatTaken{

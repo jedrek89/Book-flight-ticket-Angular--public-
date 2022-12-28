@@ -23,12 +23,70 @@
                     <div class="itemBoxC2">
                         <div class="distance"><b>distance: </b>{{flightData.data[i].distance}} km</div>
                         <div class="duration"><b>duration: </b>{{flightData.data[i].duration | durationConverter}}</div>
-                        <div class="price"><b>price: </b>{{flightData.data[i].value}} {{flightData.currency}}</div>
+                        <div class="price"><b>price: </b>{{flightData.data[i].value * this.flightParameters.passNum | number}} {{flightData.currency}}</div>
                         <div class="detailsButDiv" *ngIf="this.showItemBoxC3Status[i] === 0"><button (click)="showItemBoxC3(i)" class="detailsButton">Show more details</button></div>
                         <div class="detailsButDiv" *ngIf="this.showItemBoxC3Status[i] === 1"><button (click)="showItemBoxC3(i)" class="detailsButton">Hide more details</button></div>
                     </div>
                     <div id="{{ 'itemBoxC3_' + i }}" [ngClass]="{'hideItem' : this.showItemBoxC3Status[i] === 0, 'itemBoxC3' : this.showItemBoxC3Status[i] === 1}">
-                        <div>itemBoxC3</div>
+                        <div class="seatsReservation">Chose you seat:
+
+                            <div class="plane">
+                                <div class="seats">
+        
+                                    <!-- Row A -->
+                                    <div class="planeR1">
+                                        <div class="labelLetter">A</div>
+                                        <div *ngFor="let seat of this.seatsA, index as i">
+                                            <button #Ai (click)="seatsReservation('A', i)" [ngClass]="{'seatFree' : this.seatsA[i] === 0, 'seatTaken' : this.seatsA[i] === 1}">{{i+1}}</button>
+                                        </div>
+                                    </div>
+                                    <!-- Row B -->
+                                    <div class="planeR2">
+                                        <div class="labelLetter">B</div>
+                                        <div *ngFor="let seat of this.seatsB, index as i">
+                                            <button #Bi (click)="seatsReservation('B', i)" [ngClass]="{'seatFree' : this.seatsB[i] === 0, 'seatTaken' : this.seatsB[i] === 1}">{{i+1}}</button>
+                                        </div>
+                                    </div>
+                                    <!-- Row C -->
+                                    <div class="planeR3">
+                                        <div class="labelLetter">C</div>
+                                        <div *ngFor="let seat of this.seatsC, index as i">
+                                            <button #Ci [ngClass]="{'seatFree' : this.seatsC[i] === 0, 'seatTaken' : this.seatsC[i] === 1}" (click)="seatsReservation('C', i)">{{i+1}}</button>
+                                        </div>
+                                    </div>
+    
+                                <div class="separator"></div>
+        
+                                <!-- Row D -->
+                                <div class="planeR4">
+                                    <div class="labelLetter">D</div>
+                                    <div *ngFor="let seat of this.seatsD, index as i">
+                                        <button #Di [ngClass]="{'seatFree' : this.seatsD[i] === 0, 'seatTaken' : this.seatsD[i] === 1}" (click)="seatsReservation('D', i)">{{i+1}}</button>
+                                    </div>
+                                </div>
+                                    <!-- Row E -->
+                                    <div class="planeR5">
+                                        <div class="labelLetter">E</div>
+                                        <div *ngFor="let seat of this.seatsE, index as i">
+                                            <button #Ei [ngClass]="{'seatFree' : this.seatsE[i] === 0, 'seatTaken' : this.seatsE[i] === 1}" (click)="seatsReservation('E', i)">{{i+1}}</button>
+                                        </div>
+                                    </div>
+                                    <!-- Row F -->
+                                    <div class="planeR6">
+                                        <div class="labelLetter">F</div>
+                                        <div *ngFor="let seat of this.seatsF, index as i">
+                                            <button #Fi [ngClass]="{'seatFree' : this.seatsF[i] === 0, 'seatTaken' : this.seatsF[i] === 1}" (click)="seatsReservation('F', i)">{{i+1}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="baggageOption">Choose your baggage option:
+                            <label><input type="radio" name="food" checked > hand baggage</label>
+                            <label><input type="radio" name="food"> additional baggage (up to 23kg / dim 150 cm)</label>
+                        </div>
                     </div>
                 </div>
             </div>
