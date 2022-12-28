@@ -69,15 +69,14 @@
                                 <div class="planeR1">
                                     <div class="labelLetter">A</div>
                                     <div *ngFor="let seat of this.seatsA, index as i">
-                                        <button #Ai [ngClass]="{'seatFree' : this.seatsA[i] === 0, 'seatTaken' : this.seatsA[i] === 1}" (click)="seatsReservation('A', i)">{{i+1}}</button>
+                                        <button #Ai (click)="seatsReservation('A', i)" [ngClass]="{'seatFree' : this.seatsA[i] === 0, 'seatTaken' : this.seatsA[i] === 1}">{{i+1}}</button>
                                     </div>
                                 </div>
-    
                                 <!-- Row B -->
                                 <div class="planeR2">
                                     <div class="labelLetter">B</div>
                                     <div *ngFor="let seat of this.seatsB, index as i">
-                                        <button #Bi [ngClass]="{'seatFree' : this.seatsB[i] === 0, 'seatTaken' : this.seatsB[i] === 1}" (click)="seatsReservation('B', i)">{{i+1}}</button>
+                                        <button #Bi (click)="seatsReservation('B', i)" [ngClass]="{'seatFree' : this.seatsB[i] === 0, 'seatTaken' : this.seatsB[i] === 1}">{{i+1}}</button>
                                     </div>
                                 </div>
                                 <!-- Row C -->
@@ -87,8 +86,8 @@
                                         <button #Ci [ngClass]="{'seatFree' : this.seatsC[i] === 0, 'seatTaken' : this.seatsC[i] === 1}" (click)="seatsReservation('C', i)">{{i+1}}</button>
                                     </div>
                                 </div>
-    
-                                <div class="separator"></div>
+
+                            <div class="separator"></div>
     
                             <!-- Row D -->
                             <div class="planeR4">
