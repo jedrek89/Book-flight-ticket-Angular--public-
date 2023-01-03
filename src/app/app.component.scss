@@ -15,7 +15,7 @@ body{
     left: 0;
     right: 0;
     width: 100%;
-    height: max-content;
+    min-height: 100vh;
     background: linear-gradient(to bottom, transparent, rgb(255, 255, 255) 100%),
     url(../assets/background1.jpg);
     background-attachment: fixed;
