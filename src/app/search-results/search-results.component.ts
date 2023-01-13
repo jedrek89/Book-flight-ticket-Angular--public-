@@ -24,6 +24,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("flightDataFromAPI in search reslults", flightDataFromAPI);
     // is API response is ok
     if (flightDataFromAPI) {
       // get size of object array - data

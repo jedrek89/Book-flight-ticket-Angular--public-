@@ -1,10 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { min } from 'rxjs';
-import { __values } from 'tslib';
-import { WorldTimeAPIService } from '../services/worldTimeApi/world-time-api.service';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 import { Router } from '@angular/router';
-import { response } from 'express';
+
 
 let flightParam = {
   flyFromName: "",
@@ -93,17 +90,13 @@ export class ContentComponent implements OnInit {
   }
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: string, flyTo: string, returnDate: string, currency: string) {
-      flightParam.flyFromName = flyFrom.substring(0, flyFrom.length -15);
-      flightParam.departureDate = departDate;
-      flightParam.passNum = passNum;
-      // flightParam.flyTo = flyTo.substring(flyTo.length -3);
-      flightParam.flyToName = flyTo.substring(0, flyTo.length -15);
-      flightParam.returnDate = returnDate;
-      flightParam.currency = currency;
+      console.log("passNum: ", passNum);
+      console.log("flyFrom name: ", flyFrom.substring(0, flyFrom.length -15));
+      console.log("flyTo name: ", flyTo.substring(0, flyTo.length -15));
       this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
         console.log("flightDataAPIresponseInContent", data)
       })
-      // this.router.navigate(['/', 'search-results']);
+      this.router.navigate(['/', 'search-results']);
 
       return flightParam;
     }
