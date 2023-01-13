@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 
 @Component({
   selector: 'app-search-results',
@@ -6,7 +7,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
   styleUrls: ['./search-results.component.scss']
 })
 
-export class SearchResultsComponent implements OnInit { 
+export class SearchResultsComponent implements OnInit {
+  flightDataFromAPI: any;
   sizeOfFlightData: any; 
   showItemBoxC3Status: number [] = [];
   showMoreDetailsStatus: number = 0;
@@ -18,24 +20,24 @@ export class SearchResultsComponent implements OnInit {
   seatsE: number [] = [];
   seatsF: number [] = [];
 
-  constructor() {
+  constructor(private FlightDataAPIService: FlightDataAPIService) {
   }
 
   ngOnInit(): void {
+    this.FlightDataAPIService.getFetchedFlightDataFromBackend().subscribe((data: any) =>{
+      this.flightDataFromAPI = data;
+      console.log("API response in search results comp:", this.flightDataFromAPI);
+      return this.flightDataFromAPI;
+    })
     // is API response is ok
-    // if (flightDataFromAPI) {
-    //   // get size of object array - data
-    //   this.sizeOfFlightData = Object.keys(this.flightData.data).length;
-    //   this.showItemBoxC3Status.length = this.sizeOfFlightData;
-    //   this.showItemBoxC3Status.fill(0);
-    //   // console.log("this.showItemBoxC3Status", this.showItemBoxC3Status);
-    //   // console.log("this.showItemBoxC3Status.length", this.showItemBoxC3Status.length);
-    // }
-    // console.log('search results init');
-    // console.log('flightData', this.flightData);
-    // console.log('flight param: ', flightParam);
-    // console.log("flightParameters", this.flightParameters.flyFromName);
-    // console.log("this.seatsA", this.seatsA);
+    if (this.flightDataFromAPI) {
+      // get size of object array - data
+      this.sizeOfFlightData = Object.keys(this.flightDataFromAPI.data).length;
+      this.showItemBoxC3Status.length = this.sizeOfFlightData;
+      this.showItemBoxC3Status.fill(0);
+      // console.log("this.showItemBoxC3Status", this.showItemBoxC3Status);
+      // console.log("this.showItemBoxC3Status.length", this.showItemBoxC3Status.length);
+    }
 
     // Call seats resevation
     this.seatsArrInit();

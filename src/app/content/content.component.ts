@@ -92,15 +92,17 @@ export class ContentComponent implements OnInit {
           this.router.navigate(['/', 'search-results']);
           return console.log("return promise", this.flyDataFromAPI);
           })
-        }, 2000);
-
+        }, 1000);
       })
       promise.then((success)=>{
       })
       .catch((error) => {
         console.log(error);
       });
+      
     }
+
+
 
 }
 

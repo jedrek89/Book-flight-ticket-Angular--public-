@@ -21,9 +21,16 @@ export class FlightDataAPIService {
   ngOnInit(): void {}
 
   getFlightDataFromBackend(flyFrom: string, departDate: string, flyTo: string, returnDate: string, currency: string){
-    return this.http.get<any>(`/.netlify/functions/flightDataAPI?flyFrom=${flyFrom}&departDate=${departDate}&flyTo=${flyTo}&returnDate=${returnDate}&currency=${currency}`);
+    this.dataFromAPI = this.http.get<any>(`/.netlify/functions/flightDataAPI?flyFrom=${flyFrom}&departDate=${departDate}&flyTo=${flyTo}&returnDate=${returnDate}&currency=${currency}`);
+    return this.dataFromAPI;
+  }
+
+  getFetchedFlightDataFromBackend(){
+    return this.dataFromAPI;
   }
 }
+
+
 
 
 
