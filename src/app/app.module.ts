@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { WeatherComponent } from './weather/weather.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { FlightDataAPIService } from './services/flightDataAPI/flight-data-api.service'
 import { FormsModule } from '@angular/forms'; // 2 way data binding
@@ -22,7 +21,6 @@ import { DurationConverterPipe } from './pipes/duration-converter.pipe';
     ContentComponent,
     FooterComponent,
     SearchResultsComponent,
-    WeatherComponent,
     MyAccountComponent,
     DurationConverterPipe
   ],

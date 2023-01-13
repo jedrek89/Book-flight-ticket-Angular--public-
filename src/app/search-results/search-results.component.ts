@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { flightParam } from '../content/content.component';
 import{ flightDataFromAPI } from '../services/flightDataAPI/flight-data-api.service'
 
 @Component({
@@ -9,7 +8,6 @@ import{ flightDataFromAPI } from '../services/flightDataAPI/flight-data-api.serv
 })
 
 export class SearchResultsComponent implements OnInit { 
-  flightParameters: any = flightParam;
   flightData: any = flightDataFromAPI;
   sizeOfFlightData: any; 
   showItemBoxC3Status: number [] = [];

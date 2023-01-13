@@ -20,23 +20,6 @@ let flightParam = {
   },
 }
 
-export{
-  flightParam, dateTimeFromAPI  
-}
-
-// Object to store date & time (int/string) from API and clock function - global scope
-let dateTimeFromAPI = {
-  dtTxt: 'dtTxt',
-  timeString: 'time',
-  date: 'date',
-  hourInt: 0,
-  minuteInt: 0,
-  secondInt: 0,
-  dayOfWeek: 0,
-  dayName: 'name',
-  unixTime: 0
-};
-
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -58,44 +41,9 @@ export class ContentComponent implements OnInit {
   input1Hint :string = "";
   input4Hint :string = "";
   
-  constructor(private WorldTimeAPIService: WorldTimeAPIService, private FlightDataAPIService: FlightDataAPIService, private router: Router){}
-  // @ViewChild('input1') input1: ElementRef;
+  constructor(private FlightDataAPIService: FlightDataAPIService, private router: Router){}
   ngOnInit(): void {
-    // Berlin TZ = Warsaw TZ
-    // this.runWorldTimeAPI('Europe', 'Berlin');
-
-  }
-  
-
-  runWorldTimeAPI(continent: string, city: string){
-    this.WorldTimeAPIService.getTimeFromAPI(continent, city).subscribe( (data:any) => {
-      // Api response
-      // console.log("current time from API: ",data);
-      // data conversion
-      let dayArr: string [] = ["Sunday", "Monday", 'Tuesday', 'Wednesday', "Thursday", "Friday", "Saturday"];
-      let dataAPI = data.datetime.substring(0,10);
-      // console.log("current data from API: ", dataAPI);
-      let timeAPI = data.datetime.substring(11,19);
-      // console.log("current time from API: ", timeAPI);
-      // Cut strings value
-      let hours = timeAPI.substring(0, 2);
-      let minutes = timeAPI.substring(3,5);
-      let seconds = timeAPI.substring(6,8);
-      // convert split string values to integer
-      let hoursInt = parseInt(hours);
-      let minutesInt = parseInt(minutes);
-      let secondsInt = parseInt(seconds);
-      dateTimeFromAPI.hourInt = hoursInt;
-      dateTimeFromAPI.minuteInt = minutesInt;
-      dateTimeFromAPI.secondInt = secondsInt;
-      dateTimeFromAPI.dayOfWeek = data.day_of_week;
-      dateTimeFromAPI.dayName = dayArr[dateTimeFromAPI.dayOfWeek];
-      dateTimeFromAPI.date = dataAPI;
-      dateTimeFromAPI.timeString = timeAPI;
-      dateTimeFromAPI.unixTime = data.unixtime;
-      return dateTimeFromAPI;
-    })
-    }
+}
 
   // Input1 - fly from value form 
   getInput1(val: string){
@@ -110,7 +58,6 @@ export class ContentComponent implements OnInit {
   }
   
   autocomplete1_confirm(val: any){
-    // console.log("autocomplete1_confirm", val);
     this.input1Value = val;
     this.input1Hint = val;
     this.autocompleteStatus1 = 0;
@@ -135,7 +82,6 @@ export class ContentComponent implements OnInit {
   }
   
   autocomplete2_confirm(val: any){
-    // console.log("autocomplete1_confirm", val);
     this.input2Value = val;
     this.input4Hint = val;
     this.autocompleteStatus2 = 0;
@@ -147,56 +93,22 @@ export class ContentComponent implements OnInit {
   }
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: string, flyTo: string, returnDate: string, currency: string) {
-      flightParam.flyFrom = flyFrom.substring(flyFrom.length -3);
       flightParam.flyFromName = flyFrom.substring(0, flyFrom.length -15);
       flightParam.departureDate = departDate;
       flightParam.passNum = passNum;
-      flightParam.flyTo = flyTo.substring(flyTo.length -3);
+      // flightParam.flyTo = flyTo.substring(flyTo.length -3);
       flightParam.flyToName = flyTo.substring(0, flyTo.length -15);
       flightParam.returnDate = returnDate;
       flightParam.currency = currency;
-      //get data from API and go to results subpage through router
-      this.FlightDataAPIService.getFlightData();
+      this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
+        console.log("flightDataAPIresponseInContent", data)
+      })
       // this.router.navigate(['/', 'search-results']);
 
       return flightParam;
     }
 }
 
-function displayInput1(param1:any) {
-  console.log(param1);
-}
 
-export function clock(val1: number, val2: number, val3: number){
-  // increase seconds
-  val1++;
-  if (val1 == 60) {
-    val2++;
-    val1 = 0;
-  }
-  // increase minutes
-  if (val2 == 60) {
-    val3++;
-    val2 = 0;
-  }
-  // increase hours
-  if (val3 == 24) {
-    val3 = 0;
-  }
-  dateTimeFromAPI.secondInt = val1;
-  dateTimeFromAPI.minuteInt = val2;
-  dateTimeFromAPI.hourInt = val3;
-  let tempVal1;
-  let tempVal2;
-  let tempVal3;
-  (val1 < 10) ? tempVal1 = `0${val1}` : tempVal1 = val1;
-  (val2 < 10) ? tempVal2 = `0${val2}` : tempVal2 = val2;
-  (val3 < 10) ? tempVal3 = `0${val3}` : tempVal3 = val3;
-  // if value < 0 add 0 + val;
-  dateTimeFromAPI.timeString = tempVal3 + ":" + tempVal2 + ":" + tempVal1;
-  dateTimeFromAPI.dtTxt = (dateTimeFromAPI.date + " " + dateTimeFromAPI.timeString);
-  // return console.log("time in app components: ",dateTimeFromAPI);
-  return dateTimeFromAPI;
-}
 
 

@@ -1,6 +1,7 @@
 import { Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { flightParam } from '../../content/content.component';
+import { observable, Observable } from 'rxjs';
+// import { flightParam } from '../../content/content.component';
 import { json } from 'express';
 import { Router } from '@angular/router';
 
@@ -23,16 +24,10 @@ export class FlightDataAPIService {
   // Send output on init
   ngOnInit(): void {}
 
-  getFlightData(){
-      this.http.post(`/.netlify/functions/flightDataAPI`, flightParam).subscribe(response => 
-        {
-              flightDataFromAPI = response;
-              this.router.navigate(['/', 'search-results']);
-              console.log("API response", flightDataFromAPI);
-            }, (error) => {
-              console.log('error in getWeatherData: ', error);
-            })
-            return flightDataFromAPI;
-  };
-
+  getFlightDataFromBackend(flyFrom: string, departDate: string, flyTo: string, returnDate: string, currency: string): Observable<any> {
+    return this.http.get<any>(`/.netlify/functions/flightDataAPI?flyFrom=${flyFrom}&departDate=${departDate}&flyTo=${flyTo}&returnDate=${returnDate}&currency=${currency}`)
+  }
 }
+
+
+
