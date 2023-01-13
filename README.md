@@ -1,11 +1,13 @@
+Angular App - flight connection searcher - Angular, TS, CSS/SCSS, JS, external API's via backend with Netflify JS serverless functions . 
+
 Link to live preview: https://majestic-twilight-bd8113.netlify.app
 
 Basic info:
 I am not finisht this project yet.
-Project uses 2 external API: Open Weather API and Travel Payouts from Rapid API.
+Project uses external API: Travel Payouts from Rapid API.
 
 I build a Node.js backend for this app, but Netlify doesn't support them. I decided to create a fake backend using a Netlify Functions. 
-These functions written in java script are used in the .service files of the Angular framework - they are used to retrieve data and perform queries to external APIs. All this was to hide sensitive data (API keys).
+These functions written in Java Script are used in the .service files of the Angular framework - they are used to retrieve data and perform queries to external APIs. All this was to hide sensitive data (API keys).
 
 In the future, the layout of the site will be rebuilt
 I put RWD only for a content component so far
