@@ -90,7 +90,7 @@ export class ContentComponent implements OnInit {
           this.flyDataFromAPI = data;
           // place for function lodaing - animation data html/css
           this.router.navigate(['/', 'search-results']);
-          return console.log("return promise", this.flyDataFromAPI);
+          return this.flyDataFromAPI;
           })
         }, 1000);
       })

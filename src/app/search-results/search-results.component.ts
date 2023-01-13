@@ -26,7 +26,7 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit(): void {
     this.FlightDataAPIService.getFetchedFlightDataFromBackend().subscribe((data: any) =>{
       this.flightDataFromAPI = data;
-      console.log("API response in search results comp:", this.flightDataFromAPI);
+      // console.log("API response in search results comp:", this.flightDataFromAPI);
       return this.flightDataFromAPI;
     })
     // is API response is ok
