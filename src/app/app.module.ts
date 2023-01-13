@@ -10,8 +10,6 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { MyAccountComponent } from './my-account/my-account.component';
 import { FlightDataAPIService } from './services/flightDataAPI/flight-data-api.service'
 import { FormsModule } from '@angular/forms'; // 2 way data binding
-import { WeatherService } from './services/weather/weather.service';
-import { WorldTimeAPIService } from './services/worldTimeApi/world-time-api.service';
 import { DurationConverterPipe } from './pipes/duration-converter.pipe';
 
 @NgModule({
@@ -30,7 +28,7 @@ import { DurationConverterPipe } from './pipes/duration-converter.pipe';
     FormsModule,
     HttpClientModule
   ],
-  providers: [FlightDataAPIService, WeatherService, WorldTimeAPIService],
+  providers: [FlightDataAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

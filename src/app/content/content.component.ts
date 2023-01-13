@@ -1,21 +1,8 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
+import { FlightDataAPIService, flightDataFromAPI } from '../services/flightDataAPI/flight-data-api.service';
 import { Router } from '@angular/router';
-
-
-let flightParam = {
-  flyFromName: "",
-  flyFrom: "WAW",
-  departureDate: "2022-12-19",
-  passNum: '1',
-  flyTo: "LON",
-  flyToName: "",
-  returnDate: "2022-12-19",
-  currency: "USD",
-  dataAPI: {
-    data: [],
-  },
-}
+import { Observable } from 'rxjs';
+import { SearchResultsComponent } from '../search-results/search-results.component';
 
 @Component({
   selector: 'app-content',
@@ -24,6 +11,7 @@ let flightParam = {
 })
 
 export class ContentComponent implements OnInit {
+  flyDataFromAPI: any;
   input1Value: string = "";
   input2Value: string = "";
   autocompleteStatus1 :number = 0;
@@ -93,13 +81,24 @@ export class ContentComponent implements OnInit {
       console.log("passNum: ", passNum);
       console.log("flyFrom name: ", flyFrom.substring(0, flyFrom.length -15));
       console.log("flyTo name: ", flyTo.substring(0, flyTo.length -15));
-      this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
-        console.log("flightDataAPIresponseInContent", data)
-      })
-      this.router.navigate(['/', 'search-results']);
 
-      return flightParam;
+      // Async function with promise - 1s delay
+      const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('this is a promise');
+          this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
+          this.flyDataFromAPI = data;
+          // place for function lodaing - animation data html/css
+          })}, 1000);
+      })
+      promise.then((success)=>{
+        this.router.navigate(['/', 'search-results']);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     }
+
 }
 
 
