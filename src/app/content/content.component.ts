@@ -85,14 +85,17 @@ export class ContentComponent implements OnInit {
       // Async function with promise - 1s delay
       const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve('this is a promise');
+          // resolve('this is a promise');
           this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
           this.flyDataFromAPI = data;
           // place for function lodaing - animation data html/css
-          })}, 1000);
+          this.router.navigate(['/', 'search-results']);
+          return console.log("return promise", this.flyDataFromAPI);
+          })
+        }, 2000);
+
       })
       promise.then((success)=>{
-        this.router.navigate(['/', 'search-results']);
       })
       .catch((error) => {
         console.log(error);
