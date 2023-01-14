@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { FlightDataAPIService, flightDataFromAPI } from '../services/flightDataAPI/flight-data-api.service';
+import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SearchResultsComponent } from '../search-results/search-results.component';

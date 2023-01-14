@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 
 @Component({
@@ -24,21 +24,16 @@ export class SearchResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Fetch data from service
     this.FlightDataAPIService.getFetchedFlightDataFromBackend().subscribe((data: any) =>{
       this.flightDataFromAPI = data;
-      // console.log("API response in search results comp:", this.flightDataFromAPI);
-      return this.flightDataFromAPI;
-    })
-    // is API response is ok
-    if (this.flightDataFromAPI) {
-      // get size of object array - data
-      this.sizeOfFlightData = Object.keys(this.flightDataFromAPI.data).length;
+      // this.sizeOfFlightData = Object.keys(this.flightDataFromAPI.data).length;
+      this.sizeOfFlightData = this.flightDataFromAPI.data.length;
+      this.sizeOfFlightData = this.flightDataFromAPI.data.length;
       this.showItemBoxC3Status.length = this.sizeOfFlightData;
       this.showItemBoxC3Status.fill(0);
-      // console.log("this.showItemBoxC3Status", this.showItemBoxC3Status);
-      // console.log("this.showItemBoxC3Status.length", this.showItemBoxC3Status.length);
-    }
-
+      return this.flightDataFromAPI;
+    })
     // Call seats resevation
     this.seatsArrInit();
   }

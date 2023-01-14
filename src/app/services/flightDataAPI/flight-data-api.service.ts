@@ -1,13 +1,11 @@
 import { Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
+// var flightDataFromAPI: object;
 
-var flightDataFromAPI: object;
-
-export{
-  flightDataFromAPI,
-}
+// export{
+//   flightDataFromAPI,
+// }
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +13,7 @@ export{
 export class FlightDataAPIService {
   dataFromAPI: any;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   // Send output on init
   ngOnInit(): void {}
