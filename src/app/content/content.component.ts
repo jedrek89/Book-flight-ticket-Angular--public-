@@ -10,14 +10,10 @@ import { Router } from '@angular/router';
 
 export class ContentComponent implements OnInit {
 
-    @Input() model: any;   // instead of any, specify your type
-    updateModel() {
-      this.model.prop1 += ' child';
-    }
-
   flyDataFromAPI: any;
   input1Value: string = "";
   input2Value: string = "";
+  passNum: number = 1;
   autocompleteStatus1 :number = 0;
   autocompleteStatus2 :number = 0;
   flyFromValFilter: string[] = [];
@@ -29,7 +25,6 @@ export class ContentComponent implements OnInit {
   flyToValArrSliced: string[] = [];
   input1Hint :string = "";
   input4Hint :string = "";
-  
   constructor(private FlightDataAPIService: FlightDataAPIService, private router: Router){}
   ngOnInit(): void {
 }
@@ -88,10 +83,12 @@ export class ContentComponent implements OnInit {
           // resolve('this is a promise');
           this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
           this.flyDataFromAPI = data;
+          this.passNum = parseInt(passNum);
+
           // place for function lodaing - animation data html/css
           // navigate to flight search results component and send a data.
           this.router.navigate(['/', 'search-results'], {
-          state: { flyFromName : flyFrom, flyToName : flyTo, dataAPI: this.flyDataFromAPI, passNum: passNum }
+          state: { flyFromName : flyFrom, flyToName : flyTo, dataAPI: this.flyDataFromAPI, passNum: this.passNum }
         });
           return this.flyDataFromAPI;
           })

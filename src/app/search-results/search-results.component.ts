@@ -14,7 +14,6 @@ export class SearchResultsComponent implements OnInit {
   addNewItem(value: string) {
     this.newItemEvent.emit(value);
   }
-  // headerStatus: number = 0;
   dataFromContentComponent: any;
   sizeOfFlightData: any; 
   showItemBoxC3Status: number [] = [];
@@ -31,11 +30,11 @@ export class SearchResultsComponent implements OnInit {
   // import data through the router
     this.dataFromContentComponent = this.router.getCurrentNavigation()?.extras.state;
     if (this.dataFromContentComponent) {
+      console.log(this.dataFromContentComponent);
       this.sizeOfFlightData = this.dataFromContentComponent.dataAPI.data.length;
       this.showItemBoxC3Status.length = this.sizeOfFlightData;
       this.showItemBoxC3Status.fill(0);
     }
-    // this.headerStatus = 1;
   }
 
 

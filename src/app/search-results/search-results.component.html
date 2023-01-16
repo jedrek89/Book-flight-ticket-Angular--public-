@@ -22,7 +22,7 @@
                     <div class="itemBoxC2">
                         <div class="distance"><b>distance: </b>{{this.dataFromContentComponent.dataAPI.data[i].distance}} km</div>
                         <div class="duration"><b>duration: </b>{{this.dataFromContentComponent.dataAPI.data[i].duration | durationConverter}}</div>
-                        <div class="price"><b>price: </b>{{this.dataFromContentComponent.dataAPI.data[i].value * this.dataFromContentComponent.passNum | number}} {{this.dataFromContentComponent.dataAPI.currency}}</div>
+                        <div class="price"><b>price: </b>{{this.dataFromContentComponent.dataAPI.data[i].value * this.dataFromContentComponent.passNum}} {{this.dataFromContentComponent.dataAPI.currency}}</div>
                         <div class="detailsButDiv" *ngIf="this.showItemBoxC3Status[i] === 0"><button (click)="showItemBoxC3(i)" class="detailsButton">Show more details</button></div>
                         <div class="detailsButDiv" *ngIf="this.showItemBoxC3Status[i] === 1"><button (click)="showItemBoxC3(i)" class="detailsButton">Hide more details</button></div>
                     </div>
@@ -31,7 +31,7 @@
 
                             <div class="plane">
                                 <div class="seats">
-        
+
                                     <!-- Row A -->
                                     <div class="planeR1">
                                         <div class="labelLetter">A</div>
