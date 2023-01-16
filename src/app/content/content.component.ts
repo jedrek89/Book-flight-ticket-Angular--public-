@@ -82,10 +82,6 @@ export class ContentComponent implements OnInit {
   }
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: string, flyTo: string, returnDate: string, currency: string) {
-      console.log("passNum: ", passNum);
-      console.log("flyFrom name: ", flyFrom.substring(0, flyFrom.length -15));
-      console.log("flyTo name: ", flyTo.substring(0, flyTo.length -15));
-
       // Async function with promise - 1s delay
       const promise = new Promise((resolve, reject) => {
         setTimeout(() => {

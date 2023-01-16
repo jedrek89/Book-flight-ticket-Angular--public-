@@ -30,7 +30,6 @@ export class SearchResultsComponent implements OnInit {
   constructor(private FlightDataAPIService: FlightDataAPIService, private router: Router) {
   // import data through the router
     this.dataFromContentComponent = this.router.getCurrentNavigation()?.extras.state;
-    console.log("this.flightDataFromAPI from router", this.dataFromContentComponent);
     if (this.dataFromContentComponent) {
       this.sizeOfFlightData = this.dataFromContentComponent.dataAPI.data.length;
       this.showItemBoxC3Status.length = this.sizeOfFlightData;
@@ -41,18 +40,6 @@ export class SearchResultsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // Fetch data from service
-    // this.FlightDataAPIService.getFetchedFlightDataFromBackend().subscribe((data: any) =>{
-    //   // this.sizeOfFlightData = Object.keys(this.flightDataFromAPI.data).length;
-    //   if (data) {
-    //     this.flightDataFromAPI = data;
-    //     this.sizeOfFlightData = this.flightDataFromAPI.data.length;
-    //     this.sizeOfFlightData = this.flightDataFromAPI.data.length;
-    //     this.showItemBoxC3Status.length = this.sizeOfFlightData;
-    //     this.showItemBoxC3Status.fill(0);
-    //     this.headerStatus = 1;
-    //   }
-    // })
     // Call seats resevation
     this.seatsArrInit();
   }
