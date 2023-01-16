@@ -93,8 +93,9 @@ export class ContentComponent implements OnInit {
           this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
           this.flyDataFromAPI = data;
           // place for function lodaing - animation data html/css
+          // navigate to flight search results component and send a data.
           this.router.navigate(['/', 'search-results'], {
-          state: { flyFromName : flyFrom.substring(0, flyFrom.length -15), flyToName : flyTo.substring(0, flyTo.length -15), dataAPI: this.flyDataFromAPI }
+          state: { flyFromName : flyFrom, flyToName : flyTo, dataAPI: this.flyDataFromAPI, passNum: passNum }
         });
           return this.flyDataFromAPI;
           })
