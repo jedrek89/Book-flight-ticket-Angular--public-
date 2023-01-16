@@ -1,8 +1,6 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { SearchResultsComponent } from '../search-results/search-results.component';
 
 @Component({
   selector: 'app-content',
@@ -11,6 +9,12 @@ import { SearchResultsComponent } from '../search-results/search-results.compone
 })
 
 export class ContentComponent implements OnInit {
+
+    @Input() model: any;   // instead of any, specify your type
+    updateModel() {
+      this.model.prop1 += ' child';
+    }
+
   flyDataFromAPI: any;
   input1Value: string = "";
   input2Value: string = "";
@@ -89,7 +93,9 @@ export class ContentComponent implements OnInit {
           this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
           this.flyDataFromAPI = data;
           // place for function lodaing - animation data html/css
-          this.router.navigate(['/', 'search-results']);
+          this.router.navigate(['/', 'search-results'], {
+          state: { flyFromName : flyFrom.substring(0, flyFrom.length -15), flyToName : flyTo.substring(0, flyTo.length -15), dataAPI: this.flyDataFromAPI }
+        });
           return this.flyDataFromAPI;
           })
         }, 1000);

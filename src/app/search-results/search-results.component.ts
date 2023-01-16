@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-results',
@@ -8,7 +9,13 @@ import { FlightDataAPIService } from '../services/flightDataAPI/flight-data-api.
 })
 
 export class SearchResultsComponent implements OnInit {
-  flightDataFromAPI: any;
+  @Output() newItemEvent = new EventEmitter<string>();
+
+  addNewItem(value: string) {
+    this.newItemEvent.emit(value);
+  }
+  // headerStatus: number = 0;
+  dataFromContentComponent: any;
   sizeOfFlightData: any; 
   showItemBoxC3Status: number [] = [];
   showMoreDetailsStatus: number = 0;
@@ -20,20 +27,32 @@ export class SearchResultsComponent implements OnInit {
   seatsE: number [] = [];
   seatsF: number [] = [];
 
-  constructor(private FlightDataAPIService: FlightDataAPIService) {
+  constructor(private FlightDataAPIService: FlightDataAPIService, private router: Router) {
+  // import data through the router
+    this.dataFromContentComponent = this.router.getCurrentNavigation()?.extras.state;
+    console.log("this.flightDataFromAPI from router", this.dataFromContentComponent);
+    if (this.dataFromContentComponent) {
+      this.sizeOfFlightData = this.dataFromContentComponent.dataAPI.data.length;
+      this.showItemBoxC3Status.length = this.sizeOfFlightData;
+      this.showItemBoxC3Status.fill(0);
+    }
+    // this.headerStatus = 1;
   }
+
 
   ngOnInit(): void {
     // Fetch data from service
-    this.FlightDataAPIService.getFetchedFlightDataFromBackend().subscribe((data: any) =>{
-      this.flightDataFromAPI = data;
-      // this.sizeOfFlightData = Object.keys(this.flightDataFromAPI.data).length;
-      this.sizeOfFlightData = this.flightDataFromAPI.data.length;
-      this.sizeOfFlightData = this.flightDataFromAPI.data.length;
-      this.showItemBoxC3Status.length = this.sizeOfFlightData;
-      this.showItemBoxC3Status.fill(0);
-      return this.flightDataFromAPI;
-    })
+    // this.FlightDataAPIService.getFetchedFlightDataFromBackend().subscribe((data: any) =>{
+    //   // this.sizeOfFlightData = Object.keys(this.flightDataFromAPI.data).length;
+    //   if (data) {
+    //     this.flightDataFromAPI = data;
+    //     this.sizeOfFlightData = this.flightDataFromAPI.data.length;
+    //     this.sizeOfFlightData = this.flightDataFromAPI.data.length;
+    //     this.showItemBoxC3Status.length = this.sizeOfFlightData;
+    //     this.showItemBoxC3Status.fill(0);
+    //     this.headerStatus = 1;
+    //   }
+    // })
     // Call seats resevation
     this.seatsArrInit();
   }

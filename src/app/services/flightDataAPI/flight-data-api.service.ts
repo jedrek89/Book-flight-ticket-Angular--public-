@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FlightDataAPIService {
-  dataFromAPI: any;
+  dataFromAPI: any = "";
 
   constructor(private http: HttpClient) { }
 
@@ -20,10 +20,6 @@ export class FlightDataAPIService {
 
   getFlightDataFromBackend(flyFrom: string, departDate: string, flyTo: string, returnDate: string, currency: string){
     this.dataFromAPI = this.http.get<any>(`/.netlify/functions/flightDataAPI?flyFrom=${flyFrom}&departDate=${departDate}&flyTo=${flyTo}&returnDate=${returnDate}&currency=${currency}`);
-    return this.dataFromAPI;
-  }
-
-  getFetchedFlightDataFromBackend(){
     return this.dataFromAPI;
   }
 }
