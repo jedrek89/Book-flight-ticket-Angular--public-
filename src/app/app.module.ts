@@ -11,6 +11,9 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { FlightDataAPIService } from './services/flightDataAPI/flight-data-api.service'
 import { FormsModule } from '@angular/forms'; // 2 way data binding
 import { DurationConverterPipe } from './pipes/duration-converter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar'; 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { DurationConverterPipe } from './pipes/duration-converter.pipe';
     FooterComponent,
     SearchResultsComponent,
     MyAccountComponent,
-    DurationConverterPipe
+    DurationConverterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
   providers: [FlightDataAPIService],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 
 export class ContentComponent implements OnInit {
-
+  fetchDataStatus: number = 0;
   flyDataFromAPI: any;
   input1Value: string = "";
   input2Value: string = "";
@@ -78,15 +78,17 @@ export class ContentComponent implements OnInit {
 
   getFlightParameters(flyFrom: string, departDate: string, passNum: string, flyTo: string, returnDate: string, currency: string) {
       // Async function with promise - 1s delay
+
       if (flyFrom != '' && departDate != '' && flyTo !='' && returnDate != '') {
+        this.fetchDataStatus = 1;
         const promise = new Promise((resolve, reject) => {
           setTimeout(() => {
-            // resolve('this is a promise');
             this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
             this.flyDataFromAPI = data;
             this.passNum = parseInt(passNum);
             // place for function lodaing - animation data html/css
             // navigate to flight search results component and send a data.
+            this.fetchDataStatus = 0;
             this.router.navigate(['/', 'search-results'], {
             state: { flyFromName : flyFrom, flyToName : flyTo, dataAPI: this.flyDataFromAPI, passNum: this.passNum }
           });

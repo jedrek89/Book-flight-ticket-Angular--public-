@@ -1,56 +1,62 @@
-<body (click)="autocomplete1_Off()" (click)="autocomplete2_Off()">
-    <div id="header1" class="header1">Book flight tickets online!</div>
-    <div id="searchPanel" class="searchPanel">
-        <div id="searchTitle" class="searchTitle">Find Your Connection</div>
-        <div id="searchBox" class="searchBox">
-            <div id="searchBox1" class ="searchBox1">
-                <div id="searchBox1_R1" class="searchBox1_R1">
-                    <div id="sb1Box1" class="sb1Box1">
-                        <label id="label1" class="label1">From:</label>
-                        <input #flyFromValue class="input1" placeholder="Available: Warsaw" type="text" [(ngModel)]="input1Value" value="{{input1Value}}" (keyup)="getInput1(input1Value)">
-                        <div [ngClass]="{'flyFromValAutocomplete': this.autocompleteStatus1 == 1, 'hideItem': this.autocompleteStatus1 == 0}">
-                            <option (click)="autocomplete1_confirm(option)" [value]="option" *ngFor="let option of flyFromValFilter;let i=index;">{{option}}</option>
+<!-- <body (click)="autocomplete1_Off()" (click)="autocomplete2_Off()"> -->
+    <div class="content">
+        <div [ngClass]="{'popup': this.fetchDataStatus == 1, 'hideItem' : this.fetchDataStatus == 0}">
+            <div class="progressBar"><mat-spinner></mat-spinner></div>
+        </div>
+        <div id="header1" class="header1">Book flight tickets online!</div>
+        <div id="searchPanel" class="searchPanel">
+            <div id="searchTitle" class="searchTitle">Find Your Connection</div>
+            <div id="searchBox" class="searchBox">
+                <div id="searchBox1" class ="searchBox1">
+                    <div id="searchBox1_R1" class="searchBox1_R1">
+                        <div id="sb1Box1" class="sb1Box1">
+                            <label id="label1" class="label1">From:</label>
+                            <input #flyFromValue class="input1" placeholder="Available: Warsaw" type="text" [(ngModel)]="input1Value" value="{{input1Value}}" (keyup)="getInput1(input1Value)">
+                            <div [ngClass]="{'flyFromValAutocomplete': this.autocompleteStatus1 == 1, 'hideItem': this.autocompleteStatus1 == 0}">
+                                <option (click)="autocomplete1_confirm(option)" [value]="option" *ngFor="let option of flyFromValFilter;let i=index;">{{option}}</option>
+                            </div>
+                        </div>
+                        <div id="sb1Box2" class="sb1Box2">
+                            <label id="label2" class="label2">Departure:</label>
+                            <input #departDate class="input2" type="date" id="departDate">
+                        </div>
+    
+                        <div id="sb1Box3" class="sb1Box3">
+                            <label id="label3" class="label3">Passengers:</label>
+                            <input #passNum class="input3" type="number" id="passNum" name="passNum" value ="1" min="1" max="9">
                         </div>
                     </div>
-                    <div id="sb1Box2" class="sb1Box2">
-                        <label id="label2" class="label2">Departure:</label>
-                        <input #departDate class="input2" type="date" id="departDate">
-                    </div>
-
-                    <div id="sb1Box3" class="sb1Box3">
-                        <label id="label3" class="label3">Passengers:</label>
-                        <input #passNum class="input3" type="number" id="passNum" name="passNum" value ="1" min="1" max="9">
-                    </div>
-                </div>
-                
-                <div id="searchBox1_R2" class="searchBox1_R2">
-                    <div id="sb1Box4" class="sb1Box4">
-                        <label id="label4" class="label4">To:</label>
-                        <input #flyToValue class="input4" placeholder="Available: London, New York, Paris" type="text" [(ngModel)]="input2Value" value="{{input2Value}}" (keyup)="getInput2(input2Value)">
-                        <div [ngClass]="{'flyToValAutocomplete': this.autocompleteStatus2 == 1, 'hideItem' : this.autocompleteStatus2 == 0}">
-                            <option (click)="autocomplete2_confirm(option)" [value]="option" *ngFor="let option of flyToValFilter;let i=index;">{{option}}</option>
+                    
+                    <div id="searchBox1_R2" class="searchBox1_R2">
+                        <div id="sb1Box4" class="sb1Box4">
+                            <label id="label4" class="label4">To:</label>
+                            <input #flyToValue class="input4" placeholder="Available: London, New York, Paris" type="text" [(ngModel)]="input2Value" value="{{input2Value}}" (keyup)="getInput2(input2Value)">
+                            <div [ngClass]="{'flyToValAutocomplete': this.autocompleteStatus2 == 1, 'hideItem' : this.autocompleteStatus2 == 0}">
+                                <option (click)="autocomplete2_confirm(option)" [value]="option" *ngFor="let option of flyToValFilter;let i=index;">{{option}}</option>
+                            </div>
+                        </div>
+    
+                        <div id="sb1Box5" class="sb1Box5">
+                            <label id="label5" class="label5">Return:</label>
+                            <input #returnDate class="input5" type="date" id="returnDate">
+                        </div>
+    
+                        <div id="sb1Box6" class="sb1Box6">
+                            <label id="label6" class="label6">Price in:</label>
+                            <select #currency class="input6" name="currency" id="input6">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="PLN">PLN</option>
+                            </select>
                         </div>
                     </div>
-
-                    <div id="sb1Box5" class="sb1Box5">
-                        <label id="label5" class="label5">Return:</label>
-                        <input #returnDate class="input5" type="date" id="returnDate">
-                    </div>
-
-                    <div id="sb1Box6" class="sb1Box6">
-                        <label id="label6" class="label6">Price in:</label>
-                        <select #currency class="input6" name="currency" id="input6">
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                            <option value="PLN">PLN</option>
-                        </select>
-                    </div>
+    
                 </div>
-
-            </div>
-            <div id="searchBox2" class="searchBox2">
-                <button class="searchButton" (click) = "getFlightParameters(input1Value, departDate.value, passNum.value, flyToValue.value, returnDate.value, currency.value)">search</button>
+                <div id="searchBox2" class="searchBox2">
+                    <button class="searchButton" (click) = "getFlightParameters(input1Value, departDate.value, passNum.value, flyToValue.value, returnDate.value, currency.value)">search</button>
+                </div>
             </div>
         </div>
     </div>
-</body>
+    
+<!-- </body> -->
