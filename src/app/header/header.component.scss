@@ -5,12 +5,12 @@ $font-family_1:  Cursive, Helvetica, sans-serif;
 
 *{
 	margin: 0;
-	padding: 0;
-    box-sizing: border-box;
+	padding: 0 10% 0% 0% 15%;
+    box-sizing: inherit;
 }
 
 header{
-    width: 850px;
+    width: fit-content;
     height: 90px;
     margin: auto;
     display: flex;
@@ -33,7 +33,8 @@ header{
 
     .topMenu{
         height: 100%;
-        width: 80%;
+        padding: 0px 90px 0px 150px;
+        width: fit-content;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -42,7 +43,7 @@ header{
 
     .topMenuItem{
         cursor: pointer;
-        padding-left: 10px;
+        padding-left: 15px;
         font-size: 25px;
         font-family: $font-family_1 ;
         color: $font-color_1;
@@ -74,19 +75,22 @@ header{
         width: 100%;
         }
         .logo{
-            width: 80%;
+            width: 50%;
             order: 1;
         }
         .rwdButton{
+            cursor: pointer;
             display: flex;
-            width: 20%;
+            justify-content: right;
+            width: 50%;
             height: 90px;
             padding: 0px 0px 0px 20px;
             order: 2;
         }
+
         .topMenu{
             margin: 0;
-            padding: 0;
+            padding: 0px 0px 5px 0px;
             width: 100%;
             height: fit-content;
             flex-direction: column;
