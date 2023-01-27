@@ -14,7 +14,7 @@ $font-family_2:  Cursive, Helvetica, sans-serif;
 .content{
     height: 90%;
     width: 100%;
-    background: linear-gradient(to bottom, transparent, rgb(255, 255, 255) 100%),
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.271) 100%),
     url(../../assets/background1.jpg);
     // background-attachment: fixed;
     background-repeat: no-repeat;
@@ -66,7 +66,7 @@ $font-family_2:  Cursive, Helvetica, sans-serif;
         margin: 50px auto 120px auto;
         display: flex;
         flex-direction: column;
-        width: fit-content;
+        width: 850px;
         height: fit-content;
         opacity: 0.9;
         .searchTitle{
