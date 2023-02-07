@@ -10,19 +10,20 @@ $font-family_1:  Cursive, Helvetica, sans-serif;
 }
 
 header{
-    width: fit-content;
+    max-width: 1280px;
     height: 90px;
     margin: auto;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     .logoArea{
-        width: 40%;
+        width: 20%;
     }
 
     .logo{
         height: 90px;
-        width: 50%;
+        width: 90px;
     }
 
     .rwdButton{
@@ -30,13 +31,13 @@ header{
     }
 
     .topMenu{
-        width: 60;
+        width: 80%;
         height: 100%;
-        padding: 0px 90px 0px 50px;
+        padding: 0px 10px 0px 0px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        // justify-content: center;
+        justify-content: right;
     }
 
     .topMenuItem{
@@ -57,12 +58,11 @@ header{
     .topMenuItem_active{
         color: #ff9d00;
     }
-
-
 }
 
  /* Responsive Styles */
-@media screen and (max-width: 767px){
+
+@media screen and (max-width: 992px){
     header{
         margin: 0;
         padding: 0;
