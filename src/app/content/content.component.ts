@@ -20,7 +20,7 @@ export class ContentComponent implements OnInit {
   flyToValFilter: string[] = [];
   flyFromValArr: string[] = ["Warsaw | Airport: WAW", "Warsaw | Airport: WMI"];
   flyFromValArrSliced: string[] = [];
-  flyToValArr: string[] = ["London | Airport: LON", "London | Airport: LCY", "London | Airport : LGW", 
+  flyToValArr: string[] = ["London | Airport: LON", "London | Airport: LCY", "London | Airport: LGW", 
   "London | Airport: LHR", "Paris | Airport: CDG", "Paris | Airport: ORY", "Paris | Airport: BVA",  "New York | Airport: JFK",  "New York | Airport: LGA",  "New York | Airport: EWR"];
   flyToValArrSliced: string[] = [];
   input1Hint :string = "";
@@ -83,7 +83,7 @@ export class ContentComponent implements OnInit {
         this.fetchDataStatus = 1;
         const promise = new Promise((resolve, reject) => {
           setTimeout(() => {
-            this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyFrom.length -3), returnDate, currency).subscribe((data: any) =>{
+            this.FlightDataAPIService.getFlightDataFromBackend(flyFrom.substring(flyFrom.length -3), departDate, flyTo.substring(flyTo.length -3), returnDate, currency).subscribe((data: any) =>{
             this.flyDataFromAPI = data;
             this.passNum = parseInt(passNum);
             // place for function lodaing - animation data html/css

@@ -1,7 +1,9 @@
 $background-color_1: rgb(255, 255, 255);
 $font-color_1: rgb(84, 84, 84);
 $font-color_2:rgb(84, 84, 84);
-$font-family_1:  Cursive, Helvetica, sans-serif;
+$font-family_1: "Arial Black", sans-serif;
+$font-family_2:  Helvetica, sans-serif;
+$font-family_3: "Roboto", sans-serif;
 
 *{
 	margin: 0;
@@ -43,7 +45,8 @@ header{
     .topMenuItem{
         cursor: pointer;
         padding-left: 15px;
-        font-size: 25px;
+        font-size: 20px;
+        font-weight: 100;
         font-family: $font-family_1 ;
         color: $font-color_1;
         text-decoration: none;

@@ -4,15 +4,16 @@
     box-sizing: border-box;
 }
 
-$font-family_1: "Arial Black", Gadget, sans-serif;
-$font-family_2:  Cursive, Helvetica, sans-serif;
+$font-family_1: "Arial Black", sans-serif;
+$font-family_2:  Helvetica, sans-serif;
+$font-family_3: "Roboto", sans-serif;
 
 .hideItem{
     display: none;
 }
 
-.content{
-    height: 90%;
+.content1{
+    height: fit-content;
     width: 100%;
     background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.271) 100%),
     url(../../assets/background1.jpg);
@@ -63,7 +64,8 @@ $font-family_2:  Cursive, Helvetica, sans-serif;
     }
 
     .searchPanel{
-        margin: 50px auto 120px auto;
+        margin: auto;
+        padding: 50px 0px 120px 0px;
         display: flex;
         flex-direction: column;
         width: 850px;
@@ -268,6 +270,34 @@ $font-family_2:  Cursive, Helvetica, sans-serif;
                 }
             }
             
+    }
+
+    .content2{
+        margin: auto;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 1280px;
+        padding: 20px 0px 20px 0px;
+
+        .header2{
+            font-family: $font-family_3;
+            font-size: 40px;
+            color: rgb(0, 0, 0);
+            font-weight: 400;
+            text-align: justify;
+        }
+
+        .header3{
+            padding-top: 10px;
+            font-family: $font-family_3;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            font-weight: 300;
+            text-align: justify;
+        }
     }
 
         @media screen and (max-width: 992px){
