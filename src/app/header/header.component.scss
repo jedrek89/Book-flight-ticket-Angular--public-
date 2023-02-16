@@ -2,6 +2,9 @@ $background-color_1: rgb(255, 255, 255);
 $font-color_1: rgb(84, 84, 84);
 $font-color_2:rgb(84, 84, 84);
 $font-family_1:  Cursive, Helvetica, sans-serif;
+$font-family_2: "Arial Black", sans-serif;
+$font-family_3:  Helvetica, sans-serif;
+$font-family_4: "Roboto", sans-serif;
 
 *{
 	margin: 0;
@@ -47,10 +50,10 @@ header{
         cursor: pointer;
         padding-left: 15px;
         font-size: 25px;
-        font-family: $font-family_1 ;
+        font-family: $font-family_4;
         color: $font-color_1;
         text-decoration: none;
-        font-weight: bolder;
+        font-weight: 800;
         transition: 0.5s;
     }
 
