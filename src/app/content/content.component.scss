@@ -14,7 +14,7 @@ $font-family_3: "Roboto", sans-serif;
 }
 
 .content1{
-    height: fit-content;
+    min-height: calc(100vh - 60px);
     width: 100%;
     background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.271) 100%),
     url(../../assets/background1.jpg);
