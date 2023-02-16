@@ -12,10 +12,12 @@ $font-family_2:  Cursive, Helvetica, sans-serif;
     transition: 0.5s;
 }
 
-// body{
-//     height: fit-content;
-//     width: auto;
-// }
+body{
+    height: fit-content;
+    width: auto;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgb(167, 165, 211) 7%, rgba(189,244,255,1) 100%); 
+}
 
 .header1{
     padding: 30px 0px 30px 0px;
