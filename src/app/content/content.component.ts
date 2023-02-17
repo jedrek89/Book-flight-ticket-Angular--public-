@@ -102,11 +102,14 @@ export class ContentComponent implements OnInit {
           console.log(error);
         });
       }
-
-      
     }
 
+  slideShow(){
+    setTimeout(function(){
 
+    },3000);
+  
+  }
 
 }
 
