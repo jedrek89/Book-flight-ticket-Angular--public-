@@ -4,6 +4,8 @@
         <div class="searchResultsBox">
             <div *ngIf="this.dataFromContentComponent" class="header1">Available connections:</div>
             <div *ngIf="!this.dataFromContentComponent" class="header1">No available connection go to home a choose a connection</div>
+            <!-- <div *ngIf="this.dataFromContentComponent" class="topSortMenu">topSortMenu</div> -->
+            <div class="topSortMenu">topSortMenu</div>
             <div *ngFor="let data of this.showItemBoxC3Status; index as i">
                 <div class="item" *ngIf="this.dataFromContentComponent.dataAPI.data[i].gate" id="{{ 'item' + i }}">
                     <div class="provider">{{this.dataFromContentComponent.dataAPI.data[i].gate}}</div>
