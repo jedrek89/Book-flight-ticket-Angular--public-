@@ -14,6 +14,7 @@ import { DurationConverterPipe } from './pipes/duration-converter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar'; 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
+import {MatSelectModule} from '@angular/material/select'; 
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
   ],
   providers: [FlightDataAPIService],
   bootstrap: [AppComponent]

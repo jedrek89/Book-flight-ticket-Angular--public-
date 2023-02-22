@@ -15,8 +15,9 @@ $font-family_2:  Cursive, Helvetica, sans-serif;
 body{
     height: fit-content;
     width: auto;
-    background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgb(167, 165, 211) 7%, rgba(189,244,255,1) 100%); 
+    background-color: rgb(201, 193, 193);
+    // background: rgb(2,0,36);
+    // background: linear-gradient(180deg, rgb(243, 243, 246) 7%, rgba(189,244,255,1) 100%); 
 }
 
 .header1{
@@ -38,21 +39,32 @@ body{
     // max-width: 1280px;
     width: 80%;
     height: fit-content;
-    margin: 0px auto 20px auto;
+    margin: auto;
 }
 
-.topSortMenu{
+.topMenu{
     width: 100%;
-    height: 200px;
-    background-color:  #f4e2e2;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    .resultsNum{
+        width: 50%;
+        justify-content: flex-start;
+    }
+    .sortBy1{
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+    }
 }
+
 
     .item{
-        margin-top: 50px;
         display: flex;
         flex-direction: column;
         width: 100%;
         height: fit-content;
+        padding: 20px 0px 20px 0px;
         // background-color: #f4e2e2;
         opacity: 0.9;
             .provider{

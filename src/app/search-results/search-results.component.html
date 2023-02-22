@@ -4,11 +4,30 @@
         <div class="searchResultsBox">
             <div *ngIf="this.dataFromContentComponent" class="header1">Available connections:</div>
             <div *ngIf="!this.dataFromContentComponent" class="header1">No available connection go to home a choose a connection</div>
-            <div *ngIf="this.dataFromContentComponent" class="topSortMenu">topSortMenu</div>
-            <!-- <div class="topSortMenu">topSortMenu</div> -->
+            <!-- <div *ngIf="this.dataFromContentComponent" class="topSortMenu">topSortMenu</div> -->
+            <div class="topMenu">
+                <div class="resultsNum">Results:{{this.sizeOfFlightData}}</div>
+                <div class="sortBy1">
+                    <div class="mat-form-field1">
+                        <mat-form-field color="accent" appearance="outline">
+                            <mat-label>Sort by:</mat-label>
+                            <mat-select>
+                                <mat-option color="primary" value="option1">Price: ascending</mat-option>
+                                <mat-option color="primary" value="option3">Price: descending</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+
+                </div>
+            </div>
+
             <div *ngFor="let data of this.showItemBoxC3Status; index as i">
-                <div class="item" *ngIf="this.dataFromContentComponent.dataAPI.data[i].gate" id="{{ 'item' + i }}">
-                    <div class="provider">{{this.dataFromContentComponent.dataAPI.data[i].gate}}</div>
+                <!-- <div class="item" *ngIf="this.dataFromContentComponent.dataAPI.data[i].gate" id="{{ 'item' + i }}"> -->
+                    <div class="item" id="{{ 'item' + i }}">
+                    <div *ngIf="this.dataFromContentComponent.dataAPI.data[i].gate != ''; then thenBlock else elseBlock"></div>
+                    <ng-template class="provider" #thenBlock><div class="provider">{{this.dataFromContentComponent.dataAPI.data[i].gate}}</div></ng-template>
+                    <ng-template #elseBlock><div class="provider">No data</div></ng-template>
                     <div class="itemBox">
                         <div class="itemBoxC1">
                             <div class="flyFrom">{{this.dataFromContentComponent.flyFromName | slice: 0: -15}} {{this.dataFromContentComponent.flyFromName | slice: -3}}</div>
